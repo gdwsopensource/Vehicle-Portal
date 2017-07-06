@@ -656,7 +656,112 @@
 	            zoom: 14,
 	            roam: true,
 	            mapStyle: { //设置的地图的样式
-					style:'dark'
+					//style:'dark'
+	            	styleJson: [
+					            {
+				                    "featureType": "land",
+				                    "elementType": "all",
+				                    "stylers": {
+				                              "color": "#444444",
+				                              "visibility": "on"
+				                    }
+				          },
+				          {
+				                    "featureType": "water",
+				                    "elementType": "all",
+				                    "stylers": {
+				                              "color": "#444444",
+				                              "visibility": "on"
+				                    }
+				          },
+				          {
+				                    "featureType": "building",
+				                    "elementType": "all",
+				                    "stylers": {
+				                              "color": "#444444",
+				                              "visibility": "on"
+				                    }
+				          },
+				          {
+				                    "featureType": "manmade",
+				                    "elementType": "all",
+				                    "stylers": {
+				                              "color": "#444444",
+				                              "visibility": "on"
+				                    }
+				          },
+				          {
+				                    "featureType": "poi",
+				                    "elementType": "all",
+				                    "stylers": {
+				                              "visibility": "off"
+				                    }
+				          },
+				          {
+				                    "featureType": "subway",
+				                    "elementType": "all",
+				                    "stylers": {
+				                              "visibility": "off"
+				                    }
+				          },
+				          {
+				                    "featureType": "highway",
+				                    "elementType": "geometry",
+				                    "stylers": {
+				                              "color": "#3d85c6"
+				                    }
+				          },
+				          {
+				                    "featureType": "arterial",
+				                    "elementType": "geometry",
+				                    "stylers": {
+				                              "color": "#3d85c6"
+				                    }
+				          },
+				          {
+				                    "featureType": "local",
+				                    "elementType": "geometry",
+				                    "stylers": {
+				                              "color": "#3d85c6"
+				                    }
+				          },
+				          {
+				                    "featureType": "green",
+				                    "elementType": "all",
+				                    "stylers": {
+				                              "color": "#444444"
+				                    }
+				          },
+				          {
+				                    "featureType": "railway",
+				                    "elementType": "all",
+				                    "stylers": {
+				                              "color": "#073763",
+				                              "visibility": "off"
+				                    }
+				          },
+				          {
+				                    "featureType": "highway",
+				                    "elementType": "labels.text.stroke",
+				                    "stylers": {
+				                              "color": "#ffffff"
+				                    }
+				          },
+				          {
+				                    "featureType": "arterial",
+				                    "elementType": "labels.text.stroke",
+				                    "stylers": {
+				                              "color": "#ffffff"
+				                    }
+				          },
+				          {
+				                    "featureType": "local",
+				                    "elementType": "labels.text.stroke",
+				                    "stylers": {
+				                              "color": "#ffffff"
+				                    }
+				          }
+				          ]
 	            }
 	        },
 	        visualMap: {

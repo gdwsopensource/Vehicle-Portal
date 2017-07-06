@@ -49,6 +49,7 @@
 					top: 10,
 					left: 10,
 				},
+				/*
 				tooltip:{
 					formatter:function(params){
 						var res="";
@@ -57,6 +58,7 @@
 		                return res;
 					}
 				},
+				*/
 				//设置右侧拦的下标
 				legend: {
 					data: ['严重警告', '中度警告', '低度警告'],
@@ -72,138 +74,111 @@
 					zoom: 14,
 					roam: true,
 					mapStyle: { //设置的地图的样式
-						style:'dark'
-						/*styleJson: [{
-								'featureType': 'water',
-								'elementType': 'all',
-								'stylers': {
-									'color': '#08233e'
-								}
-							},
-							{
-								'featureType': 'land',
-								'elementType': 'all',
-								'stylers': {
-									'color': '#08233e'
-								}
-							},
-							{
-								'featureType': 'railway',
-								'elementType': 'all',
-								'stylers': {
-									'visibility': 'off'
-								}
-							},
-							{
-								'featureType': 'highway', //高速
-								'elementType': 'geometry',
-								'stylers': {
-									'color': '#227eda',
-									'weight': '0.1'
-								}
-							},
-							{
-								'featureType': 'highway',
-								'elementType': 'labels',
-								'stylers': {
-									'color': '#ffffff'
-								}
-							},
-							{
-								'featureType': 'highway',
-								'elementType': 'labels.text.stroke',
-								'stylers': {
-									'color': 'transparent'
-								}
-							},
-							{
-								'featureType': 'arterial', //城市主路
-								'elementType': 'geometry',
-								'stylers': {
-									'color': '#227eda',
-									'weight': '0.1'
-								}
-							},
-							{
-								'featureType': 'arterial',
-								'elementType': 'labels',
-								'stylers': {
-									'color': '#ffffff'
-								}
-							},
-							{
-								'featureType': 'arterial',
-								'elementType': 'labels.text.stroke',
-								'stylers': {
-									'color': 'transparent'
-								}
-							},
-							{
-								'featureType': 'poi',
-								'elementType': 'all',
-								'stylers': {
-									'visibility': 'off'
-								}
-							},
-							{
-								'featureType': 'green',
-								'elementType': 'all',
-								'stylers': {
-									'visibility': 'off'
-								}
-							},
-							{
-								'featureType': 'subway',
-								'elementType': 'all',
-								'stylers': {
-									'visibility': 'off'
-								}
-							},
-							{
-								'featureType': 'manmade',
-								'elementType': 'all',
-								'stylers': {
-									'color': '#08233e'
-								}
-							},
-							{
-								'featureType': 'local',
-								'elementType': 'all',
-								'stylers': {
-									'color': '#08233e'
-								}
-							},
-							{
-								'featureType': 'boundary',
-								'elementType': 'all',
-								'stylers': {
-									'color': '#fefefe'
-								}
-							},
-							{
-								'featureType': 'building',
-								'elementType': 'all',
-								'stylers': {
-									'color': '#08233e'
-								}
-							},
-							{
-								'featureType': 'label',
-								'elementType': 'labels.text.fill',
-								'stylers': {
-									'color': '#ffffff',
-									'weight': '0.1'
-								}
-							},
-							{
-								'featureType': 'label',
-								'elementType': 'labels.text.stroke',
-								'stylers': {
-									'color': 'transparent',
-									'weight': '0.1'
-								}
-							}
-						]*/
+						styleJson: [
+						            {
+					                    "featureType": "land",
+					                    "elementType": "all",
+					                    "stylers": {
+					                              "color": "#444444",
+					                              "visibility": "on"
+					                    }
+					          },
+					          {
+					                    "featureType": "water",
+					                    "elementType": "all",
+					                    "stylers": {
+					                              "color": "#444444",
+					                              "visibility": "on"
+					                    }
+					          },
+					          {
+					                    "featureType": "building",
+					                    "elementType": "all",
+					                    "stylers": {
+					                              "color": "#444444",
+					                              "visibility": "on"
+					                    }
+					          },
+					          {
+					                    "featureType": "manmade",
+					                    "elementType": "all",
+					                    "stylers": {
+					                              "color": "#444444",
+					                              "visibility": "on"
+					                    }
+					          },
+					          {
+					                    "featureType": "poi",
+					                    "elementType": "all",
+					                    "stylers": {
+					                              "visibility": "off"
+					                    }
+					          },
+					          {
+					                    "featureType": "subway",
+					                    "elementType": "all",
+					                    "stylers": {
+					                              "visibility": "off"
+					                    }
+					          },
+					          {
+					                    "featureType": "highway",
+					                    "elementType": "geometry",
+					                    "stylers": {
+					                              "color": "#3d85c6"
+					                    }
+					          },
+					          {
+					                    "featureType": "arterial",
+					                    "elementType": "geometry",
+					                    "stylers": {
+					                              "color": "#3d85c6"
+					                    }
+					          },
+					          {
+					                    "featureType": "local",
+					                    "elementType": "geometry",
+					                    "stylers": {
+					                              "color": "#3d85c6"
+					                    }
+					          },
+					          {
+					                    "featureType": "green",
+					                    "elementType": "all",
+					                    "stylers": {
+					                              "color": "#444444"
+					                    }
+					          },
+					          {
+					                    "featureType": "railway",
+					                    "elementType": "all",
+					                    "stylers": {
+					                              "color": "#073763",
+					                              "visibility": "off"
+					                    }
+					          },
+					          {
+					                    "featureType": "highway",
+					                    "elementType": "labels.text.stroke",
+					                    "stylers": {
+					                              "color": "#ffffff"
+					                    }
+					          },
+					          {
+					                    "featureType": "arterial",
+					                    "elementType": "labels.text.stroke",
+					                    "stylers": {
+					                              "color": "#ffffff"
+					                    }
+					          },
+					          {
+					                    "featureType": "local",
+					                    "elementType": "labels.text.stroke",
+					                    "stylers": {
+					                              "color": "#ffffff"
+					                    }
+					          }
+					]
 					}
 				}
 			}	
@@ -313,6 +288,26 @@
 				            console.log("请求出错----"+err);
 				        }
 					});
+				}
+			});
+			myChart_map.on('mouseover',function(params){
+				if (params.seriesType == 'effectScatter'){
+					$(".cross_info_box>.cross_name").html("卡口："+params.data.name);
+					$(".cross_info_box>.value").html("坐标："+params.data.value[0]+","+params.data.value[1]);
+					$(".cross_info_box>.car_cross_cnt").html("预测通过车辆数："+params.data.car_cross_cnt);					
+					var crossInfoBoxW=$(".cross_info_box").width();
+					var contentW=$(".content").width();
+					if(params.event.offsetX>(contentW/2)){
+						$(".cross_info_box").css({"top":params.event.offsetY,"left":params.event.offsetX-crossInfoBoxW-15});
+					}else{
+						$(".cross_info_box").css({"top":params.event.offsetY,"left":params.event.offsetX+15});
+					}
+					$(".cross_info_box").show();
+				}
+			});
+			myChart_map.on('mouseout',function(params){
+				if (params.seriesType == 'effectScatter'){
+					$(".cross_info_box").hide();
 				}
 			});
 		}	

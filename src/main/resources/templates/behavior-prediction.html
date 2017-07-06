@@ -13,8 +13,9 @@
 					<div class="close"></div>
 					<div class="box">
 						<div class="search">
-							<input type="text" name="search" id="search_input" class="search-input" placeholder="例：粤A235679"/>
-							<button type="button" class="search-btn" id="search_btn">查询</button>
+							<input type="text" name="search" id="search_input" class="search-input" placeholder="例：粤A12345"/>
+							<button type="button" class="search-btn" id="searchAll_btn">查询全部</button>
+							<button type="button" class="search-btn" id="saveResult_btn">保存结果</button>
 						</div>
 						<div class="result"></div>
 						<!-- <div class="result">没有查询到结果~</div>
@@ -77,5 +78,6 @@
 	<footer th:include="@{include/footer}" class="footer"></footer>
 	<script th:src="@{js/common.js}" async="async" defer="defer"></script>
 	<script th:src="@{js/behavior-prediction.js}" async="async" defer="defer"></script>
+	<script th:src="@{libs/tableExporter/tableExporter.min.js}" async="async" defer="defer"></script>
 </body>
 </html>

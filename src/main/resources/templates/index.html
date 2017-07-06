@@ -10,21 +10,26 @@
 		<section class="content">
 			<div class="map" id="map"></div>
 			<div class="calendar" th:include="@{include/calendar}" id="calendar"></div>
-			<div class="data" id="data" style="display:none;">
-					<div class="title">高发车辆</div>
-					<div class="close"></div>
-					<div class="box">
-						<table class="table">
-							<thead>
-								<tr>
-									<td>卡口</td>
-									<td>车辆</td>
-									<td>时间</td>
-									<td>预警类型</td>
-								</tr>
-							</thead>
-							<tbody>
-								<!-- <tr data-carid="20">
+			<div class="cross_info_box">
+				<p class="cross_name"></p>
+				<p class="value"></p>
+				<p class="car_cross_cnt"></p>
+			</div>
+			<div class="data" id="data" style="display: none;">
+				<div class="title">高发车辆</div>
+				<div class="close"></div>
+				<div class="box">
+					<table class="table">
+						<thead>
+							<tr>
+								<td>卡口</td>
+								<td>车辆</td>
+								<td>时间</td>
+								<td>预警类型</td>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- <tr data-carid="20">
 									<td>天河</td>
 									<td>粤Axxxx</td>
 									<td>09:00-10:00</td>
@@ -108,10 +113,10 @@
 									<td>09:00-10:00</td>
 									<td>逾期未年检</td>
 								</tr> -->
-							</tbody>
-						</table>
-					</div>			
+						</tbody>
+					</table>
 				</div>
+			</div>
 		</section>
 	</div>
 	<footer th:include="@{include/footer}" class="footer"></footer>

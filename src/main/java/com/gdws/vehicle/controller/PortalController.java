@@ -31,6 +31,10 @@ public class PortalController {
     String behaviorPrediction() {
         return "behavior-prediction";
     }
+    @RequestMapping("high-analysis")
+    String highAnalysis() {
+        return "high-analysis";
+    }
     
     @RequestMapping("mv")
     ModelAndView test() {

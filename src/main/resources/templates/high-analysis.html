@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head th:include="include/head" th:with="title='卡口数据可视化'"></head>
+<body style="background-color: #00011f;">
+	<header class="header">
+		<h1>卡口数据可视化</h1>
+	</header>
+	<div class="container clearfix">
+		<div class="aside" id="aside" th:include="@{include/aside}"></div>
+		<section class="content">
+			<div class="data" id="data" style="width: 100%; height: 100%; background: none; left: 0; top: 0;">
+				<div class="title">高频分析</div>
+				<div class="box">
+					<div class="search">
+						<input type="date" name="search" id="search" class="search-input"
+							placeholder="请输入日期 yyyy--mm--dd" />
+						<button type="button" class="search-btn" id="search_btn">查询</button>
+					</div>
+					<div class="result" id="result">
+						<!-- <table class="table">
+							<thead>
+								<tr>
+									<th>车牌号</th>
+									<th>预警次数</th>
+									<th>预警类型</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>粤H2222</td>
+									<td>89</td>
+									<td>多次违章</td>
+								</tr>
+							</tbody>
+						</table> -->
+					</div>	
+				</div>
+			</div>
+		</section>
+	</div>
+	<footer th:include="@{include/footer}" class="footer"></footer>
+	<script th:src="@{js/common.js}" async="async" defer="defer"></script>
+	<script th:src="@{js/high-analysis.js}" async="async" defer="defer"></script>
+</body>
+</html>

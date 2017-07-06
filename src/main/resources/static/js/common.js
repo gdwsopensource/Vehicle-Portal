@@ -1,12 +1,55 @@
 (function($){
-	//下拉菜单
-	$('#aside').on('click', '.item', function() {
-		if($(this).find('.item-bar').css('display') === 'none') {
-			$(this).find('.item-bar').show();
-		} else {
-			$(this).find('.item-bar').hide();
-		}
-	});
+	// esc键关闭#data
+    $(document).keydown(function (event) {
+        var e = event || window.event;
+        var k = e.keyCode || e.which;
+        if (k == 27) {
+            $("#data").hide();
+        }
+    });
+
+    // 地址栏跳转时
+    var jumpHref = location.pathname;
+    var aObj = $('.item-bar > a');
+    aObj.each(function (index, value) {
+        if ($(this).attr("href") == jumpHref) {
+            if (window.sessionStorage) {
+                sessionStorage.setItem("portalNav", $(this).attr("nav-id"));
+            }
+        }
+    });
+
+    // 储存上次点击菜单
+    if (window.sessionStorage) {
+        var portalNav = sessionStorage.getItem("portalNav" || "");
+        var aObj = $('.item-bar > a');
+        aObj.each(function (index, value) {
+            if ($(this).attr("nav-id") == portalNav) {
+                $(this).addClass("active");
+                $(this).parent().parent().find(".text").addClass("active");
+                $(this).parent().css({
+                    'display': 'block'
+                });
+            }
+        });
+    }
+    $('.item-bar > a').click(function () {
+        $('.item-bar > a').removeClass('active');
+        $(this).addClass('active');
+        if (window.sessionStorage) {
+            sessionStorage.setItem("portalNav", $(this).attr("nav-id"));
+        }
+    });
+    // 下拉菜单
+    $('#aside').on('click', '.item', function () {
+        if ($(this).find('.item-bar').css('display') === 'none') {
+            $(this).find('.item-bar').show();
+            $(this).find('.text').addClass("active");
+        } else {
+            $(this).find('.item-bar').hide();
+            $(this).find('.text').removeClass("active");
+        }
+    });
 	//滚动table
 	$('#data').find('.box').mCustomScrollbar({
 		axis:"y", theme:"my-theme"
