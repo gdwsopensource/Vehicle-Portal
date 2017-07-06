@@ -1,0 +1,47 @@
+{
+	"code":200,
+	"message":"success",
+	"total":5, 
+	"data":[
+		{
+			"cross_id":1111,
+			"cross_name":"卡口1",
+			"week_time":["周一","周二","周三","周四","周五","周六","周日"],
+			"cross_car_data":[2,5,6,7,8,8,10],
+			"cross_car_total":120
+		},
+		{
+			"cross_id":2222,
+			"cross_name":"卡口2",
+			"week_time":["周一","周二","周三","周四","周五","周六","周日"],
+			"cross_car_data":[2,5,6,7,8,8,10],
+			"cross_car_total":30
+		},
+		{
+			"cross_id":3333,
+			"cross_name":"卡口3",
+			"week_time":["周一","周二","周三","周四","周五","周六","周日"],
+			"cross_car_data":[2,5,6,7,8,8,10],
+			"cross_car_total":10
+		},
+		{
+			"cross_id":4444,
+			"cross_name":"卡口4",
+			"week_time":["周一","周二","周三","周四","周五","周六","周日"],
+			"cross_car_data":[2,5,6,7,8,8,10],
+			"cross_car_total":60
+		},
+		{
+			"cross_id":5555,
+			"cross_name":"卡口5",
+			"week_time":["周一","周二","周三","周四","周五","周六","周日"],
+			"cross_car_data":[2,5,6,7,8,8,10],
+			"cross_car_total":90
+		}
+
+	]
+}
+
+
+
+

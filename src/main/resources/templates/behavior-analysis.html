@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head th:include="include/head" th:with="title='行为分析'"></head>
+<body style="background-color: #00011f;">
+	<header class="header">
+		<h1>卡口数据可视化</h1>
+	</header>
+	<div class="container clearfix">
+		<div class="aside" id="aside" th:include="@{include/aside}"></div>
+		<section class="content">
+			<div class="data" id="data"
+				style="width: 100%; height: 100%; background: none; left: 0; top: 0;">
+				<div class="title">行为分析</div>
+				<div class="box clearfix">
+					<div class="time_group" id="time_s">
+						<div class="opt">
+							<input class="magic-radio" type="radio" name="analysis_type" id="r1"
+								value="0" checked="checked" /><label for="r1">一天</label>
+						</div>
+						<div class="opt">
+							<input class="magic-radio" type="radio" name="analysis_type" id="r2"
+								value="1" /> <label for="r2">一周</label>
+						</div>
+						<div class="opt">
+							<input class="magic-radio" type="radio" name="analysis_type" id="r3"
+								value="2" /> <label for="r3">一月</label>
+						</div>
+						<div class="opt">
+							<input class="magic-radio" type="radio" name="analysis_type" id="r4"
+								value="3" /> <label for="r4">一年</label>
+						</div>
+					</div>
+					<div class="search">
+						<input type="text" name="search" id="search" class="search-input"
+							placeholder="请输入车牌号" />
+						<button type="button" class="search-btn" id="search_btn">查询</button>
+						<button type="button" class="search-btn" id="save_btn">保存</button>
+					</div>
+					<div class="result clearfix" id="result"></div>				
+					<!-- <div class="result">没有查询到结果~</div>
+						<div id="behavior_analysis_line"></div>
+						<div id="behavior_analysis_bar"></div>
+						<div id="behavior_analysis_bar_total"></div>
+						<div id="behavior_analysis_pie"></div> -->						
+				</div>
+			</div>
+		</section>
+	</div>
+	<footer th:include="@{include/footer}" class="footer"></footer>
+	<script th:src="@{js/common.js}" async="async" defer="defer"></script>
+	<script th:src="@{js/behavior-analysis.js}" async="async" defer="defer"></script>
+	<!-- <script type="text/javascript">
+			(function($) {
+				var dom_line = document.getElementById('behavior_analysis_line');
+				var myChart_line = echarts.init(dom_line);
+				var option_line = null;
+				option_line = {
+					title: {
+						text: '一周内车辆通过卡口的分析',
+						textStyle: {
+							color: '#fff',
+							fontWeight: 400
+						}
+					},
+					tooltip: {
+						trigger: 'axis'
+					},
+					legend: {
+						data: ['卡口1', '卡口2', '卡口3', '卡口4', '卡口5'],
+						textStyle: {
+							color: '#fff'
+						}
+					},
+					grid: {
+						left: '3%',
+						right: '4%',
+						bottom: '3%',
+						containLabel: true
+					},
+					xAxis: {
+						type: 'category',
+						boundaryGap: false,
+						data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+						name: '时间',
+						nameTextStyle: {
+							color: '#fff'
+						},
+						axisLabel: {
+							show: true,
+							textStyle: {
+								color: '#fff'
+							}
+						},
+						axisLine: {
+							lineStyle: {
+								color: '#fff',
+							}
+						}
+					},
+					yAxis: {
+						type: 'value',
+						name: '次数',
+						nameTextStyle: {
+							color: '#fff'
+						},
+						axisLabel: {
+							show: true,
+							textStyle: {
+								color: '#fff'
+							}
+						},
+						axisLine: {
+							lineStyle: {
+								color: '#fff',
+							}
+						}
+					},
+					series: [{
+							name: '卡口1',
+							type: 'line',
+							data: [1, 3, 5, 6, 2, 8, 7]
+						},
+						{
+							name: '卡口2',
+							type: 'line',
+							data: [8, 3, 9, 6, 2, 12, 7]
+						},
+						{
+							name: '卡口3',
+							type: 'line',
+							data: [5, 3, 12, 6, 2, 22, 7]
+						},
+						{
+							name: '卡口4',
+							type: 'line',
+							data: [6, 8, 5, 15, 2, 8, 7]
+						},
+						{
+							name: '卡口5',
+							type: 'line',
+							data: [2, 3, 16, 6, 11, 8, 7]
+						}
+					]
+				};
+				myChart_line.setOption(option_line);
+
+				var dom_bar = document.getElementById('behavior_analysis_bar');
+				var myChart_bar = echarts.init(dom_bar);
+				var option_bar = null;
+				option_bar = {
+					title: {
+						text: '标题',
+						textStyle: {
+							color: '#fff',
+							fontWeight: 400
+						}
+					},
+					tooltip: {},
+					legend: {
+						data: ['卡口1', '卡口2', '卡口3', '卡口4', '卡口5'],
+						textStyle: {
+							color: '#fff'
+						}
+					},
+					xAxis: {
+						data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+						name: '卡口',
+						nameTextStyle: {
+							color: '#fff'
+						},
+						axisLabel: {
+							show: true,
+							textStyle: {
+								color: '#fff'
+							}
+						},
+						axisLine: {
+							lineStyle: {
+								color: '#fff',
+							}
+						}
+					},
+					yAxis: {
+						type: 'value',
+						axisLabel: {
+							show: true,
+							textStyle: {
+								color: '#fff'
+							}
+						},
+						axisLine: {
+							lineStyle: {
+								color: '#fff',
+							}
+						},
+						name: '次数',
+						nameStyle: {
+							color: '#fff'
+						}
+					},
+					series: [{
+							name: ["卡口1"],
+							type: 'bar',
+							data: [5, 2, 5, 6, 3, 6, 9],
+							itemStyle: {
+								normal: {
+									color: '#c23531'
+								}
+							}
+						},
+						{
+							name: ["卡口2"],
+							type: 'bar',
+							data: [8, 6, 4, 8, 9, 10, 15],
+							itemStyle: {
+								normal: {
+									color: '#2f4554'
+								},
+							}
+						},
+						{
+							name: ["卡口3"],
+							type: 'bar',
+							data: [5, 6, 4, 8, 6, 3, 4],
+							itemStyle: {
+								normal: {
+									color: '#61a0a8'
+								}
+							}
+						},
+						{
+							name: ["卡口4"],
+							type: 'bar',
+							data: [5, 3, 6, 4, 2, 6, 7],
+							itemStyle: {
+								normal: {
+									color: '#d48265'
+								}
+							}
+						},
+						{
+							name: ["卡口5"],
+							type: 'bar',
+							data: [9, 5, 6, 7, 9, 5, 6],
+							itemStyle: {
+								normal: {
+									color: '#91c7ae'
+								}
+							}
+						}
+					]
+				}
+				myChart_bar.setOption(option_bar);
+
+				var dom_bar_total = document.getElementById('behavior_analysis_bar_total');
+				var myChart_bar_total = echarts.init(dom_bar_total);
+				var option_bar_total = null;
+				option_bar_total = {
+					title: {
+						text: '统计一周内车辆通过卡口的总数',
+						textStyle: {
+							color: '#fff'
+						},
+					},
+					tooltip: {},
+					xAxis: {
+						data: ["卡口1", "卡口2", "卡口3", "卡口4", "卡口5"],
+						axisLabel: {
+							show: true,
+							textStyle: {
+								color: '#fff'
+							}
+						},
+						axisLine: {
+							lineStyle: {
+								color: '#fff',
+							}
+						},
+						name: '卡口',
+						nameStyle: {
+							color: '#ff'
+						}
+					},
+					yAxis: {
+						name: '次数',
+						nameStyle: {
+							color: '#fff'
+						},
+						type: 'value',
+						axisLabel: {
+							show: true,
+							textStyle: {
+								color: '#fff'
+							}
+						},
+						axisLine: {
+							lineStyle: {
+								color: '#fff',
+							}
+						}
+					},
+					series: [{
+						type: 'bar',
+						data: [5, 20, 36, 10, 10],
+						itemStyle: {
+							normal: {
+								color: function(params) {
+									var colorList = ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae'];
+									return colorList[params.dataIndex];
+								}
+							}
+						}
+					}]
+				}
+				myChart_bar_total.setOption(option_bar_total);
+
+				var dom_pie = document.getElementById('behavior_analysis_pie');
+				var myChart_pie = echarts.init(dom_pie);
+
+				var option_pie = null;
+				option_pie = {				
+						title: {
+							text: '统计一周内车辆通过卡口的百分比',
+							x: 'center',
+							textStyle:{
+								color:'#fff',
+								fontWeight:400
+							}
+						},
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a} <br/>{b} : {c} ({d}%)"
+						},
+						legend: {
+							orient: 'vertical',
+							left: 'left',
+							data: ['卡口1', '卡口2', '卡口3', '卡口4', '卡口5'],
+							textStyle:{
+								color:'#fff'
+							}
+						},
+						series: [{
+							name: '访问来源',
+							type: 'pie',
+							radius: '55%',
+							center: ['50%', '60%'],
+							data: [{
+									value: 335,
+									name: '卡口1'
+								},
+								{
+									value: 310,
+									name: '卡口2'
+								},
+								{
+									value: 234,
+									name: '卡口3'
+								},
+								{
+									value: 135,
+									name: '卡口4'
+								},
+								{
+									value: 1548,
+									name: '卡口5'
+								}
+							],
+							itemStyle: {
+								emphasis: {
+									shadowBlur: 10,
+									shadowOffsetX: 0,
+									shadowColor: 'rgba(0, 0, 0, 0.5)'
+								}
+							},
+							label:{
+								normal:{
+									textStyle:{
+										color:'#fff'
+									}
+								}
+							}
+						}]
+				}
+				myChart_pie.setOption(option_pie);
+				
+			})(jQuery)
+		</script> -->
+</body>
+</html>
