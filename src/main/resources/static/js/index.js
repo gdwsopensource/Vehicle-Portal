@@ -194,6 +194,7 @@
 		        	var data=JSON.parse(data);
 		        	console.log(data);
 		        	if(data.code === 200){	      
+					    if(data.data === "null") return;
 		        		var low=CarOverviewValueFormat(data.data).low;
 		        		var medium=CarOverviewValueFormat(data.data).medium;
 		        		var serious=CarOverviewValueFormat(data.data).serious;
