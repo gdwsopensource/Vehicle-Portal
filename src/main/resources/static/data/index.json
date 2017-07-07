@@ -1,15 +1,43 @@
 {
 	"code":200,
 	"message":"success",
-	"total":5, 
-	"time":22333893983
+	"total":5, // 数据总数
+	"time":22333893983 // 时间戳
 	"data":[
 		{
-			"cross_id":223, 
-			"cross_name":"卡口1", 
-			"alert_type":"low", 
-			"cross_loaction":[113.331838888889,23.1206888888889],
-			"cross_car_total":20
+			"cross_id":223,  ===>卡口的id
+			"cross_name":"卡口1", =====>卡口的名称
+			"alert_type":"low", ====>卡口的压力
+			"cross_loaction":[113.331838888889,23.1206888888889], =====>卡口的位置
+			"cross_car_total":20 ====>卡口通过车辆的统计
+		},
+		{
+			"cross_id":223,  ===>卡口的id
+			"cross_name":"卡口1", =====>卡口的名称
+			"alert_type":"low", ====>卡口的压力
+			"cross_loaction":[113.331838888889,23.1206888888889], =====>卡口的位置
+			"cross_car_total":20 ====>卡口通过车辆的统计
+		},
+		{
+			"cross_id":223,  ===>卡口的id
+			"cross_name":"卡口1", =====>卡口的名称
+			"alert_type":"low", ====>卡口的压力
+			"cross_loaction":[113.331838888889,23.1206888888889], =====>卡口的位置
+			"cross_car_total":20 ====>卡口通过车辆的统计
+		},
+		{
+			"cross_id":223,  ===>卡口的id
+			"cross_name":"卡口1", =====>卡口的名称
+			"alert_type":"low", ====>卡口的压力
+			"cross_loaction":[113.331838888889,23.1206888888889], =====>卡口的位置
+			"cross_car_total":20 ====>卡口通过车辆的统计
+		},
+		{
+			"cross_id":223,  ===>卡口的id
+			"cross_name":"卡口1", =====>卡口的名称
+			"alert_type":"low", ====>卡口的压力
+			"cross_loaction":[113.331838888889,23.1206888888889], =====>卡口的位置
+			"cross_car_total":20 ====>卡口通过车辆的统计
 		}
 	]
 }

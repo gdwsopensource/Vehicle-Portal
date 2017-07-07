@@ -226,6 +226,15 @@
 						getAnalysisData(type,QueryObj,function(res){
 							var res=JSON.parse(res);
 							console.log(res);
+							if(res.code === 200){
+								if(res.data === "null"){
+									$('#result').html("没有查询到结果~");
+								}else{
+									var result_html="<div id='hot'></div>";
+									$('#result').html(result_html);
+									readAnalysis_hot_Frame(res.data);
+								}
+							}
 						});
 					}
 					else if(type === 3){
@@ -233,6 +242,15 @@
 						getAnalysisData(type,QueryObj,function(res){
 							var res=JSON.parse(res);
 							console.log(res);
+							if(res.code === 200){
+								if(res.data === "null"){
+									$('#result').html("没有查询到结果~");
+								}else{
+									var result_html="<div id='hot'></div>";
+									$('#result').html(result_html);
+									readAnalysis_hot_Frame(res.data);
+								}
+							}
 						});
 					}
 				};
@@ -290,6 +308,8 @@
 							}else{
 								var result_html="<div id='hot'></div>";
 								$('#result').html(result_html);
+								var hotHeight=$('#data').find('.box').height()-80;
+								$('#hot').height(hotHeight);
 								readAnalysis_hot_Frame(res.data);
 							}
 						}
@@ -307,6 +327,8 @@
 							}else{
 								var result_html="<div id='hot'></div>";
 								$('#result').html(result_html);
+								var hotHeight=$('#data').find('.box').height()-80;
+								$('#hot').height(hotHeight);
 								readAnalysis_hot_Frame(res.data);
 							}
 						}
@@ -387,6 +409,8 @@
 							}else{
 								var result_html="<div id='hot'></div>";
 								$('#result').html(result_html);
+								var hotHeight=$('#data').find('.box').height()-80;
+								$('#hot').height(hotHeight);
 								readAnalysis_hot_Frame(res.data);
 							}
 						}
@@ -404,6 +428,8 @@
 							}else{
 								var result_html="<div id='hot'></div>";
 								$('#result').html(result_html);
+								var hotHeight=$('#data').find('.box').height()-80;
+								$('#hot').height(hotHeight);
 								readAnalysis_hot_Frame(res.data);
 							}
 						}
