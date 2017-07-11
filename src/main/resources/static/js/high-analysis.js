@@ -18,12 +18,12 @@
 			        			$('#result').html('没有查询到结果~');
 			        		}else{
 			        			$('#result').html(readTableFrame(data.data,searchTime));
-			        			// 跳转
+			        		/*	// 跳转
 			        			$('#result').find('.table').find('tbody').on('click','tr',function(){
 			        				var crossTime=$(this).attr('data-crossTime');
 			        				var plateNo=$(this).attr('data-plateNo');
 			        				window.location.href="/behavior-analysis?crossTime="+crossTime+"&plateNo="+plateNo;	
-			        			});
+			        			});*/
 			        			
 			        		}
 			        	}
