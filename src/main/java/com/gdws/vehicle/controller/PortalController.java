@@ -31,11 +31,26 @@ public class PortalController {
     String behaviorPrediction() {
         return "behavior-prediction";
     }
-    @RequestMapping("high-analysis")
-    String highAnalysis() {
-        return "high-analysis";
+    @RequestMapping("first-analysis")
+    String firstAnalysis() {
+        return "first-analysis";
     }
-    
+    @RequestMapping("frequency-analysis")
+    String frequencyAnalysis() {
+        return "frequency-analysis";
+    }
+    @RequestMapping("deck-analysis")
+    String deckAnalysis() {
+        return "deck-analysis";
+    }
+    @RequestMapping("od-analysis")
+    String odAnalysis() {
+        return "od-analysis";
+    }
+    @RequestMapping("daynight-analysis")
+    String daynightAnalysis() {
+        return "daynight-analysis";
+    }
     @RequestMapping("mv")
     ModelAndView test() {
         ModelAndView mv = new ModelAndView();

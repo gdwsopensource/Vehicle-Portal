@@ -76,6 +76,12 @@ table {
 .textRight {
 	text-align: right;
 }
+.ml10{
+	margin-left:10px;
+}
+.mr10{
+	margin-right:10px;
+}
 
 @
 keyframes hover-color {from { border-color:#c0c0c0;
@@ -431,10 +437,11 @@ to {
 }
 
 .container .content .data .box .search .search-input {
-	height: 40px;
-	line-height: 40px;
+	/* height: 40px;
+	line-height: 40px; */
 	font-size: 16px;
-	padding-left: 45px;
+	/* padding-left: 45px; */
+	padding:12px 0 12px 45px;
 	outline: 0;
 	background: url(../image/search.png) no-repeat 10px center;
 	background-size: 29px 24px;
@@ -448,8 +455,8 @@ to {
 }
 
 .container .content .data .box .search .search-btn {
-	height: 40px;
-	line-height: 40px;
+	height: 44px;
+	line-height: 44px;
 	color: #d8e7e8;
 	text-align: center;
 	background: -webkit-gradient(linear, left top, left bottom, from(#4b9ff8),
