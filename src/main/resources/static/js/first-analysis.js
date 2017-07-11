@@ -6,11 +6,19 @@
 			 $.ajax({  
 			        type: "get",  
 			        async: false,  
-			        url: "http://localhost:8082/highFrequencyAnalysis?startTime="+startTime+"&endTime="+endTime,  
+			        url: "http://192.168.1.161:8082/carFirstArrivalService?startTime="+startTime+"&endTime="+endTime,  
 			        dataType: "jsonp",  
 			        jsonp:"cb",
 			        success: function(data){
+			        	var data=JSON.parse(data);
 			        	console.log(data);
+			        	if(data.code === 200){
+			        		if(data.data === "null"){
+			        			$('#result').html('没有查询到结果~');
+			        		}else{
+			        			$('#result').html(readTableFrame(data.data));
+			        		}
+			        	}
 			        },
 			        error:function(err){
 			        	console.log("请求出错----"+err);
@@ -26,17 +34,14 @@
 		html+="<tbody>";
 		for(var i=0;i<data.length;i++){
 			html+="<tr>";
-			html+="<td>"+data[i].car_plateNo+"</td>";
-			html+="<td>"+data[i].cross_time+"</td>";
-			if(data[i].arrival_type === 0){
-				html+="<td>普通初次入城</td>";
-			}else{
-				html+="<td></td>";
-			}			
+			html+="<td>"+data[i].plate_no+"</td>";
+			html+="<td>"+data[i].cross_date+"</td>";
+			html+="<td>"+data[i].arrival_type+"</td>";
 			html+="</tr>";
 		}
 		html+="</tbody>";
 		html+="</table>";
+		return html;
 	}
 	
 	

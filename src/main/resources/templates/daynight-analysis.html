@@ -17,10 +17,10 @@
 						<button type="button" class="search-btn" id="search_btn">查询</button>
 					</div>
 					<div class="result" id="result">
-						<table class="table"> 
+						<!-- <table class="table"> 
 							<thead>
 								<tr>
-									<!-- <th>车辆类型</th> -->
+									<th>车辆类型</th>
 									<th>车牌号码</th>
 									<th>日期</th>
 									<th>07:00-19:00的过车次数</th>
@@ -30,7 +30,7 @@
 							</thead>
 							<tbody>
 								<tr>
-								   <!--  <td>黄色</td> -->
+								    <td>黄色</td>
 									<td>粤XXXX</td>
 									<td>2017-02-09</td>
 									<td>10</td>
@@ -38,7 +38,7 @@
 									<td>否</td>
 								</tr>
 							</tbody>
-						</table>
+						</table> -->
 					</div>			
 				</div>
 			</div>
@@ -46,5 +46,6 @@
 	</div>
 	<footer th:include="@{include/footer}" class="footer"></footer>
 	<script th:src="@{js/common.js}" async="async" defer="defer"></script>
+	<script th:src="@{js/daynight-analysis.js}" async="async" defer="defer"></script>
 </body>
 </html>
