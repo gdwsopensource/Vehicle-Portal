@@ -51,6 +51,11 @@ public class PortalController {
     String daynightAnalysis() {
         return "daynight-analysis";
     }
+    @RequestMapping("all-analysis")
+    String allAnalysis() {
+        return "all-analysis";
+    }
+    
     @RequestMapping("mv")
     ModelAndView test() {
         ModelAndView mv = new ModelAndView();
