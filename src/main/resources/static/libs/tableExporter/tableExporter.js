@@ -78,9 +78,10 @@
             a.href = URL.createObjectURL(new Blob([data], {type: data_type[format]}));
 
             var now = new Date();
+            //这里源码'MM'写错了，自己修正
             var time_arr = [
                 'DD:'+now.getDate(),
-                'MM:'+now.getDate(),
+                'MM:'+(now.getMonth()+1),
                 'YY:'+now.getFullYear(),
                 'hh:'+now.getHours(),
                 'mm:'+now.getMinutes(),
