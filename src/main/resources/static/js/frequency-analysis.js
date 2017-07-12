@@ -8,11 +8,8 @@
 				 $.ajax({  
 				        type: "get",  
 				        async: false,  
-				        url: "http://localhost:8082/highFrequencyAnalysisAccrodingCrossName?startTime="+startTime+"&endTime="+endTime+"&crossName="+crossName,  
-				        dataType: "jsonp",  
-				        jsonp:"cb",
+				        url: "highFrequencyAnalysisAccrodingCrossName?startTime="+startTime+"&endTime="+endTime+"&crossName="+crossName,  
 				        success: function(data){
-				        	var data=JSON.parse(data);
 				        	console.log(data);
 				        	if(data.code === 200){
 				        		if(data.data === "null"){
@@ -30,11 +27,8 @@
 				$.ajax({  
 				        type: "get",  
 				        async: false,  
-				        url: "http://localhost:8082/highFrequencyAnalysis?startTime="+startTime+"&endTime="+endTime,  
-				        dataType: "jsonp",  
-				        jsonp:"cb",
+				        url: "highFrequencyAnalysis?startTime="+startTime+"&endTime="+endTime,  
 				        success: function(data){
-				        	var data=JSON.parse(data);
 				        	console.log(data);
 				        	if(data.code === 200){
 				        		if(data.data === "null"){

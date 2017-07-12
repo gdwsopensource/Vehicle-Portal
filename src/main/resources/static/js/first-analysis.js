@@ -6,14 +6,11 @@
 			 $.ajax({  
 			        type: "get",  
 			        async: false,  
-			        url: "http://192.168.1.161:8082/carFirstArrivalService?startTime="+startTime+"&endTime="+endTime,  
-			        dataType: "jsonp",  
-			        jsonp:"cb",
+			        url: "carFirstArrivalService?startTime="+startTime+"&endTime="+endTime,  
 			        success: function(data){
-			        	var data=JSON.parse(data);
 			        	console.log(data);
 			        	if(data.code === 200){
-			        		if(data.data === "null"){
+			        		if(data.data === null){
 			        			$('#result').html('没有查询到结果~');
 			        		}else{
 			        			$('#result').html(readTableFrame(data.data));

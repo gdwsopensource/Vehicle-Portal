@@ -21,21 +21,14 @@ import com.gdws.vehicle.utils.HttpClientUtils;
  * @version 1.0, 2017年7月11日 下午17:47
  */
 @RestController
-public class NightActiveAnalysisController {
+public class carFirstArrivalServiceController {
 	@Autowired
 	private Systemconfigs conf;
 
-	@RequestMapping("nightActiveAnalysis")
-	public JSONObject nightActiveAnalysis(String plateNo) {
+	@RequestMapping("carFirstArrivalService")
+	public JSONObject carFirstArrivalService(String startTime,String endTime) {
 		String url = "http://" + conf.getDomain() + ":" + conf.getPort();
 		return JSONObject.parseObject(
-				HttpClientUtils.doGet(url + "/nightActiveAnalysis?plateNo=" + plateNo, null));
+				HttpClientUtils.doGet(url + "/carFirstArrivalService?startTime="+ startTime+"&endTime="+endTime, null));
 	}
-	@RequestMapping("nightActiveAnalysisALL")
-	public JSONObject nightActiveAnalysisALL() {
-		String url = "http://" + conf.getDomain() + ":" + conf.getPort();
-		return JSONObject.parseObject(
-				HttpClientUtils.doGet(url + "/nightActiveAnalysis?plateNo=", null));
-	}
-	
 }
