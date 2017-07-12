@@ -369,6 +369,27 @@ to {
 	padding: 10px 30px;
 }
 
+/*轨迹分析页面保存结果按钮*/
+.container .content .data .save {
+	position: absolute;
+	right: 100px;
+	top: 2px;	
+	height: 40px;
+	line-height: 40px;
+	color: #d8e7e8;
+	text-align: center;
+	background: -webkit-gradient(linear, left top, left bottom, from(#4b9ff8),
+		color-stop(#1f71bc), to(#26628b));
+	background: -webkit-linear-gradient(#4b9ff8, #1f71bc, #26628b);
+	background: linear-gradient(#4b9ff8, #1f71bc, #26628b);
+	border: 1px solid #1a2a38;
+	outline: 0;
+	margin-left: 30px;
+	font-size: 16px;
+	padding: 0 15px;
+	cursor: pointer;
+}
+
 .container .content .data .close {
 	position: absolute;
 	right: 30px;
@@ -473,8 +494,9 @@ to {
 
 .container .content .data .box .result {
 	font-size: 16px;
-	margin-top: 80px;
 	line-height: 40px;
+	margin-left: 30px;
+	display:inline;
 }
 
 #map {
@@ -536,4 +558,113 @@ to {
 	border-radius:5px;
 	line-height:20px;
 	display:none;
+}
+
+/*20170705*/
+.mousemenu {
+	display: none;
+	position: absolute;
+	background-color: rgba(68, 68, 68, 0.5);
+	border: 1px solid rgba(64, 134, 196, 0.5);
+	border-radius: 8px;
+	z-index: 5;
+	display: none;
+	cursor: pointer;
+}
+
+.mousemenu>ul {
+	list-style: none;
+}
+
+.mousemenu>ul>li {
+	line-height: 15px;
+	font-size: 15px;
+	/*color: #E0B060;*/
+	color: rgb(64, 196, 64);
+	text-align: center;
+	margin: 8px;
+}
+
+.mousemenu>ul>li:hover {
+	color: rgb(232, 240, 0);
+}
+/*20170706*/
+.Wdate {
+	width: 182px;
+	font-size: 20px;
+	text-align: center;
+	color: #FFF;
+	background-color: #444444;
+	border: #3B86C7 1px solid;
+	height: 20px;
+}
+/*起始双日历*/
+.container .content #plateno-input-span{
+	position: absolute;
+	top: 10px;
+	right: 702px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 20px;
+	color: #FFF;
+}
+.container .content #plateno-input {
+	position: absolute;
+	top: 10px;
+	right: 508px;
+	border: #3B86C7 1px solid;
+	height: 20px;
+	line-height: 20px;
+	font-size: 20px;
+	color: #FFF;
+	background-color: #444444;
+	text-align:center;
+	width: 182px;
+}
+
+.container .content #calendar-start-span {
+	position: absolute;
+	top: 10px;
+	right: 478px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 20px;
+	color: #FFF;
+}
+
+.container .content #calendar-start {
+	position: absolute;
+	top: 10px;
+	right: 284px;
+}
+
+.container .content #calendar-start-end {
+	position: absolute;
+	top: 10px;
+	right: 254px;
+	height: 24px;
+	line-height: 24px;
+	color: #FFF;
+	font-size: 20px;
+}
+
+.container .content #calendar-end {
+	position: absolute;
+	top: 10px;
+	right: 60px;
+}
+.container .content #trajectort-analysis-search-btn{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	height: 22px;
+	line-height: 22px;
+	font-size: 20px;
+	color: #FFF;
+	border: #3B86C7 1px solid;
+	background-color:#444444;
+	cursor:pointer;
+}
+.container .content #trajectort-analysis-search-btn:hover{
+	background-color:#3B86C7;
 }
