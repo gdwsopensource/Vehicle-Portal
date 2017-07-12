@@ -118,9 +118,7 @@
 			$.ajax({  
 		        type: "get",  
 		        async: false,  
-		        url: "http://localhost:8082/analysisOneDay?crossTime=2016-01-01&plateNo="+plateNo,  
-		        dataType: "jsonp",  
-		        jsonp:"cb",
+		        url: "analysisOneDay?crossDate="+crossTime+"&plateNo="+plateNo,  
 		        success:function(data){
 		        	callback && callback(data);
 		        },
@@ -132,9 +130,7 @@
 			$.ajax({  
 		        type: "get",  
 		        async: false,  
-		        url: "http://localhost:8082/analysisOnWeek?plateNo="+plateNo,  
-		        dataType: "jsonp",  
-		        jsonp:"cb",
+		        url: "analysisOnWeek?plateNo="+plateNo,  
 		        success:function(data){
 		        	callback && callback(data);
 		        },
@@ -146,9 +142,7 @@
 			$.ajax({  
 		        type: "get",  
 		        async: false,  
-		        url: "http://localhost:8082/analysisOnMonth?plateNo="+plateNo,  
-		        dataType: "jsonp",  
-		        jsonp:"cb",
+		        url: "analysisOnMonth?plateNo="+plateNo,  
 		        success:function(data){
 		        	callback && callback(data);
 		        },
@@ -160,9 +154,7 @@
 			$.ajax({  
 		        type: "get",  
 		        async: false,  
-		        url: "http://localhost:8082/analysisOnYear?plateNo="+plateNo,  
-		        dataType: "jsonp",  
-		        jsonp:"cb",
+		        url: "analysisOnYear?plateNo="+plateNo,  
 		        success:function(data){
 		        	callback && callback(data);
 		        },
@@ -188,7 +180,6 @@
 						QueryObj.plateNo=plateNo;
 						QueryObj.crossTime=new Date().getNowFormatDate();
 						getAnalysisData(type,QueryObj,function(res){
-							var res=JSON.parse(res);
 							console.log(res);
 							if(res.code === 200){
 								if(res.data === "null"){
@@ -206,7 +197,6 @@
 					else if(type === 1){
 						QueryObj.plateNo=plateNo;
 						getAnalysisData(type,QueryObj,function(res){
-							var res=JSON.parse(res);
 							console.log(res);
 							if(res.code === 200){
 								if(res.data === "null"){
@@ -224,7 +214,6 @@
 					else if(type === 2){
 						QueryObj.plateNo=plateNo;
 						getAnalysisData(type,QueryObj,function(res){
-							var res=JSON.parse(res);
 							console.log(res);
 							if(res.code === 200){
 								if(res.data === "null"){
@@ -240,7 +229,6 @@
 					else if(type === 3){
 						QueryObj.plateNo=plateNo;
 						getAnalysisData(type,QueryObj,function(res){
-							var res=JSON.parse(res);
 							console.log(res);
 							if(res.code === 200){
 								if(res.data === "null"){
@@ -264,7 +252,6 @@
 						QueryObj.plateNo=plateNo;
 						QueryObj.crossTime=new Date().getNowFormatDate();
 						getAnalysisData(type,QueryObj,function(res){
-							var res=JSON.parse(res);
 							console.log(res);
 							if(res.code === 200){
 								if(res.data === "null"){
@@ -282,7 +269,6 @@
 					var QueryObj=new Object();
 					QueryObj.plateNo=plateNo;
 					getAnalysisData(type,QueryObj,function(res){
-						var res=JSON.parse(res);
 						console.log(res);
 						if(res.code === 200){
 							if(res.data === "null"){
@@ -300,7 +286,6 @@
 					var QueryObj=new Object();
 					QueryObj.plateNo=plateNo;
 					getAnalysisData(type,QueryObj,function(res){
-						var res=JSON.parse(res);
 						console.log(res);
 						if(res.code === 200){
 							if(res.data === "null"){
@@ -319,7 +304,6 @@
 					var QueryObj=new Object();
 					QueryObj.plateNo=plateNo;
 					getAnalysisData(type,QueryObj,function(res){
-						var res=JSON.parse(res);
 						console.log(res);
 						if(res.code === 200){
 							if(res.data === "null"){
@@ -342,7 +326,6 @@
 			console.log(_initArgs);
 			window.sessionStorage.setItem(prefix+"plateNo", _initArgs.plateNo);
 			getAnalysisData(initType,_initArgs,function(res){
-				var res=JSON.parse(res);
 				console.log(res);
 				if(res.code === 200){
 					if(res.data === "null"){
@@ -365,7 +348,6 @@
 						QueryObj.plateNo=plateNo;
 						QueryObj.crossTime=new Date().getNowFormatDate();
 						getAnalysisData(type,QueryObj,function(res){
-							var res=JSON.parse(res);
 							console.log(res);
 							if(res.code === 200){
 								if(res.data === "null"){
@@ -383,7 +365,6 @@
 					var QueryObj=new Object();
 					QueryObj.plateNo=plateNo;
 					getAnalysisData(type,QueryObj,function(res){
-						var res=JSON.parse(res);
 						console.log(res);
 						if(res.code === 200){
 							if(res.data === "null"){
@@ -401,7 +382,6 @@
 					var QueryObj=new Object();
 					QueryObj.plateNo=plateNo;
 					getAnalysisData(type,QueryObj,function(res){
-						var res=JSON.parse(res);
 						console.log(res);
 						if(res.code === 200){
 							if(res.data === "null"){
@@ -420,7 +400,6 @@
 					var QueryObj=new Object();
 					QueryObj.plateNo=plateNo;
 					getAnalysisData(type,QueryObj,function(res){
-						var res=JSON.parse(res);
 						console.log(res);
 						if(res.code === 200){
 							if(res.data === "null"){

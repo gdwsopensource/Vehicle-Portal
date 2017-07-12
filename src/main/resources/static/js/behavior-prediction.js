@@ -39,11 +39,8 @@ var lastSearch="";
 		$.ajax({  
 	        type: "get",  
 	        async: false,  
-	        url: "http://localhost:8082/behaviorPredict?plateNo="+plateNo,  
-	        dataType: "jsonp",  
-	        jsonp:"cb",
+	        url: "behaviorPredict?plateNo="+plateNo,  
 	        success:function(data){
-	        	var data=JSON.parse(data);
 	        	console.log(data);
 	        	if(data.code === 200){
 	        		if(data.data === "null"){

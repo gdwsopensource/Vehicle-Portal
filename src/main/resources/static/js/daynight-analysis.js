@@ -24,7 +24,7 @@
 			 $.ajax({  
 			        type: "get",  
 			        async: false,  
-			        url: "nightActiveAnalysis?plateNo=",
+			        url: "nightActiveAnalysisALL",
 			        success: function(data){
 			        	console.log(data);
 			        	if(data.code === 200){
@@ -53,9 +53,9 @@
 			html+="<td>"+data[i].cross_date+"</td>";
 			html+="<td>"+data[i].day_cross_cnt+"</td>";
 			html+="<td>"+data[i].night_cross_cnt+"</td>";
-			if(data[i].night_active === 0){
+			if(data[i].night_active === "0"){
 				html+="<td>否</td>";
-			}else if(data[i].night_active === 1){
+			}else if(data[i].night_active === "1"){
 				html+="<td>是</td>";
 			}	
 			html+="</tr>";

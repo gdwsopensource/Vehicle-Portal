@@ -32,10 +32,10 @@
 	initMap();
 	function initMap(){
 		var nowDate=new Date().getNowFormatDate();//获取当前时间
-		console.log(nowDate);
 		readMapFrame(nowDate);
 	}
 	function readMapFrame(time){		
+		console.log(time);
 		//地图
 		var dom_map = document.getElementById('map');
 		var myChart_map = echarts.init(dom_map);
@@ -187,11 +187,8 @@
 			$.ajax({  
 		        type: "get",  
 		        async: false,  
-		        url: "http://localhost:8082/getCarOverview?crossTime="+time,  
-		        dataType: "jsonp",  
-		        jsonp:"cb",
+		        url: "getCarOverview?crossDate="+time,  
 		        success: function(data){
-		        	var data=JSON.parse(data);
 		        	console.log(data);
 		        	if(data.code === 200){	  
 		        		if(data.data === "null") return;
@@ -270,16 +267,11 @@
 					$.ajax({  
 				        type: "get",  
 				        async: false,  
-				        url: "http://localhost:8082/getCarOverviewCross?crossTime="+time+"&crossId="+params.data.cross_id,  
-				        dataType: "jsonp",  
-				        jsonp:"cb",
+				        url: "getCarOverviewCross?crossId="+params.data.cross_id+"&crossDate="+time,  
 				        success:function(data){
-				        	var data=JSON.parse(data);
 				        	console.log(data);
 				        	if(data.code === 200){
-				        		if(data.data === "no data"){
-				        			return;
-				        		}
+				        		if(data.data === "null") return;
 				        		$('#data').find('.box').find('.table').find('tbody').html(readTableFrame(data.data));
 				        		$('#data').show();
 				        	}				        	
