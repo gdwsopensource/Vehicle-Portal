@@ -43,24 +43,22 @@ public class PortalController {
     String deckAnalysis() {
         return "deck-analysis";
     }
-    @RequestMapping("od-analysis")
-    String odAnalysis() {
-        return "od-analysis";
-    }
     @RequestMapping("daynight-analysis")
     String daynightAnalysis() {
         return "daynight-analysis";
     }
-    @RequestMapping("all-analysis")
-    String allAnalysis() {
-        return "all-analysis";
+    @RequestMapping("trajectory-analysis")
+    String trajectoryAnalysis() {
+        return "trajectory-analysis";
     }
-    
-    @RequestMapping("mv")
-    ModelAndView test() {
-        ModelAndView mv = new ModelAndView();
-        
-        return mv;
+    @RequestMapping("od-analysis")
+    String odAnalysis() {
+        return "od-analysis";
+    }
+    @RequestMapping("all-query")
+    String allQuery() {
+        return "all-query";
+
     }
 }
 
