@@ -2,44 +2,44 @@
 	$('#search_btn').on('click',function(){
 		var plate_no=$('#plate_no').val();
 		if(plate_no !== ""){
-			 $.ajax({  
-			        type: "get",  
-			        async: false,  
-			        url: "searchFakePlateCar?plateNo="+plate_no,  
-			        success: function(data){
-			        	console.log(data);
-			        	if(data.code === 200){
-			        		if(data.data === "null"){
-			        			$('#result').html('没有查询到结果~');
-			        		}else{
-			        			$('#result').html(readTableFrame(data.data));
-			        		}
-			        	}
-			        },
-			        error:function(err){
-			        	console.log("请求出错----"+err);
-			        }
-			 });
-		}else{
-			 $.ajax({  
-			        type: "get",  
-			        async: false,  
-			        url: "searchFakePlateCarALL",  
-			        success: function(data){
-			        	console.log(data);
-			        	if(data.code === 200){
-			        		if(data.data === "null"){
-			        			$('#result').html('没有查询到结果~');
-			        		}else{
-			        			$('#result').html(readTableFrame(data.data));
-			        		}
-			        	}
-			        },
-			        error:function(err){
-			        	console.log("请求出错----"+err);
-			        }
-			 });
-		}
+				 $.ajax({  
+				        type: "get",  
+				        async: false,  
+				        url: "searchFakePlateCar?plateNo="+plate_no,  
+				        success: function(data){
+				        	console.log(data);
+				        	if(data.code === 200){
+				        		if(data.data === "null"){
+				        			$('#result').html('没有查询到结果~');
+				        		}else{
+				        			$('#result').html(readTableFrame(data.data));
+				        		}
+				        	}
+				        },
+				        error:function(err){
+				        	console.log("请求出错----"+err);
+				        }
+				 });
+			}else{
+				 $.ajax({  
+				        type: "get",  
+				        async: false,  
+				        url: "searchFakePlateCarALL",  
+				        success: function(data){
+				        	console.log(data);
+				        	if(data.code === 200){
+				        		if(data.data === "null"){
+				        			$('#result').html('没有查询到结果~');
+				        		}else{
+				        			$('#result').html(readTableFrame(data.data));
+				        		}
+				        	}
+				        },
+				        error:function(err){
+				        	console.log("请求出错----"+err);
+				        }
+				 });
+			}
 		return false;
 	});
 	function readTableFrame(data){
@@ -51,11 +51,7 @@
 			html+="<tr>";
 			html+="<td>"+data[i].plate_no+"</td>";
 			html+="<td>"+data[i].cross_date+"</td>";
-			if(data[i].fake_plate_type ==="0"){
-				html+="<td>是</td>";
-			}else if(data[i].night_active ==="1"){
-				html+="<td>否</td>";
-			}	
+			html+="<td>"+data[i].fake_plate_type+"</td>";	
 			html+="</tr>";
 		}
 		html+="</tbody>";

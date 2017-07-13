@@ -1,7 +1,7 @@
 (function($){
 	$('#search_btn').on('click',function(){
 		var startTime=$('#startTime').val();//开始时间
-		var endTime=$('#endTime').val(); //结束时间
+		var endTime=$('#endTime').val(); //结束时间	
 		 if(startTime !== "" && endTime !==""){
 			 $.ajax({  
 			        type: "get",  
