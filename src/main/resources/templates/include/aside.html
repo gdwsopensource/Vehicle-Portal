@@ -1,25 +1,31 @@
 <div class="item">
 	<div class="text">每日预警</div>
 	<div class="item-bar">
-		<a th:href="@{/index}" data-href="/index" nav-id="11">重点关注</a>
+		<a th:href="@{/index}" nav-id="11" data-href="/index">重点关注</a>
 	</div>
 </div>
 <div class="item">
 	<div class="text">智能辅助</div>
 	<div class="item-bar">
-		<a th:href="@{/behavior-analysis}" data-href="/behavior-analysis"
-			nav-id="21">行为分析</a> <a th:href="@{/behavior-prediction}"
-			data-href="/behavior-prediction" nav-id="22">行为预测</a>
-		<!-- <a th:href="@{/high-analysis}" data-href="/high-analysis" nav-id="23">高频分析</a> -->
-		<a th:href="@{/frequency-analysis}" data-href="/frequency-analysis"
-			nav-id="24">频次分析</a> <a th:href="@{/first-analysis}"
-			data-href="/first-analysis" nav-id="25">初次入城分析</a> <a
-			th:href="@{/deck-analysis}" data-href="/deck-analysis" nav-id="26">假/套牌车分析</a>
-		<a th:href="@{/daynight-analysis}" data-href="/daynight-analysis"
-			nav-id="27">昼伏夜出分析</a> <a th:href="@{/trajectory-analysis}"
-			data-href="/trajectory-analysis" nav-id="28">轨迹分析</a> <a
-			th:href="@{/od-analysis}" data-href="/od-analysis" nav-id="29">OD分析</a>
-			<a
-			th:href="@{/all-query}" data-href="/all-query" nav-id="30">综合查询</a>
+		<a th:href="@{/behavior-analysis}" nav-id="21" data-href="/behavior-analysis">行为分析</a>
+		<a th:href="@{/behavior-prediction}" nav-id="22" data-href="/behavior-prediction">行为预测</a>
 	</div>
 </div>
+<div class="item">
+	<div class="text">实战应用</div>
+	<div class="item-bar">
+		<a th:href="@{/frequency-analysis}" nav-id="31" data-href="/frequency-analysis">频次分析</a>
+		<a th:href="@{/trajectory-analysis}" nav-id="32" data-href="/trajectory-analysis">轨迹分析</a>
+		<a th:href="@{/first-analysis}" nav-id="33" data-href="/first-analysis">初次入城分析</a>
+		<a th:href="@{/daynight-analysis}" nav-id="34" data-href="/daynight-analysis">昼伏夜出分析</a>
+		<a th:href="@{/od-analysis}" nav-id="35" data-href="/od-analysis">OD分析</a>
+		<a th:href="@{/deck-analysis}" nav-id="36" data-href="/deck-analysis">假/套牌车分析</a>
+	</div>
+</div>
+<div class="item">
+	<div class="text">平台应用</div>
+	<div class="item-bar">
+		<a th:href="@{/all-query}" nav-id="41" data-href="/all-query">综合查询</a>
+	</div>
+</div>
+
