@@ -55,11 +55,9 @@ public class PortalController {
     String odAnalysis() {
         return "od-analysis";
     }
-    @RequestMapping("mv")
-    ModelAndView test() {
-        ModelAndView mv = new ModelAndView();
-        
-        return mv;
+    @RequestMapping("all-query")
+    String allQuery() {
+        return "all-query";
     }
 }
 
