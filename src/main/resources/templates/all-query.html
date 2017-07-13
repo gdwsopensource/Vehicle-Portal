@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head th:include="include/head" th:with="title='综合查询'"></head>
+<body style="background-color: #00011f;">
+	<header class="header">
+		<h1>卡口数据可视化</h1>
+	</header>
+	<div class="container clearfix">
+		<div class="aside" id="aside" th:include="@{include/aside}"></div>
+		<section class="content">
+			<div class="all-query">
+				<div class="all-search">
+					<div class="cross-name">
+						<span>卡口</span><input type="text" id="cross-name" />
+					</div>
+					<div class="plate-no">
+						<span>车牌</span><input type="text" id="plate-no" />
+					</div>
+					<div class="start-time">
+						<span>从日期</span>
+						<div class="calendar" th:include="@{include/calendar2}"
+							id="start-time"></div>
+					</div>
+					<div class="end-time">
+						<span>到</span>
+						<div class="calendar" th:include="@{include/calendar2}"
+							id="end-time"></div>
+					</div>
+					<div class="alert-type">
+						<span>预警类型</span><select id="alert-type"></select>
+					</div>
+					<div class="plate-type">
+						<span>车辆类型</span><select id="plate-type"></select>
+					</div>
+					<button id="search-btn">综合查询</button>
+					<button id="save-btn">保存结果</button>
+				</div>
+				<div class="all-result">
+					
+				</div>
+			</div>
+		</section>
+	</div>
+	<footer th:include="@{include/footer}" class="footer"></footer>
+	<script th:src="@{js/common.js}" async="async" defer="defer"></script>
+	<script th:src="@{libs/My97DatePicker/WdatePicker.js}" async="async"
+		defer="defer"></script>
+	<script th:src="@{libs/tableExporter/tableExporter.min.js}"
+		async="async" defer="defer"></script>
+	<script th:src="@{js/all-query.js}" async="async" defer="defer"></script>
+</body>
+</html>

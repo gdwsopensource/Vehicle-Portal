@@ -1,4 +1,6 @@
 (function($) {
+	//地图的高度扣除掉上方搜索高度44px
+	$("#map").css("height",parseInt($("#map").css("height"))-44);
 	// 起始日期设置
 	// 此处调取后台
 	// 绑定车牌改变事件
@@ -113,12 +115,12 @@
 		var option_map = null;
 		option_map = {
 			title : {
-				text : '车辆轨迹分析图',
+				text : '车辆轨迹图',
 				textStyle : {
 					color : '#fff'
 				},
 				top : 10,
-				left : 10,
+				left : 10
 			},
 			bmap : {
 				center : [ 113.366286, 23.130748 ], // 后台返回后动态设置成第一个出现的地方或最高频率的地方

@@ -8,20 +8,23 @@
 	<div class="container clearfix">
 		<div class="aside" id="aside" th:include="@{include/aside}"></div>
 		<section class="content">
-			<div class="map" id="map"></div>
-			<span id="plateno-input-span">车辆</span><input type="text"
-				id="plateno-input" /> <span id="calendar-start-span">从</span>
-			<div class="calendar" th:include="@{include/calendar2}"
-				id="calendar-start"></div>
-			<span id="calendar-start-end">到</span>
-			<div class="calendar" th:include="@{include/calendar2}"
-				id="calendar-end"></div>
-			<div id="trajectort-analysis-search-btn">查询</div>
-			<div class="cross_info_box">
-				<p class="cross_name"></p>
-				<p class="pass_chance"></p>
-				<p class="day_count"></p>
+			<div class="top-search">
+				<span id="plateno-input-span">车辆</span><input type="text"
+					id="plateno-input" /> <span id="calendar-start-span">从</span>
+				<div class="calendar" th:include="@{include/calendar2}"
+					id="calendar-start"></div>
+				<span id="calendar-start-end">到</span>
+				<div class="calendar" th:include="@{include/calendar2}"
+					id="calendar-end"></div>
+				<div id="trajectort-analysis-search-btn">查询</div>
+				<div class="cross_info_box">
+					<p class="cross_name"></p>
+					<p class="pass_chance"></p>
+					<p class="day_count"></p>
+				</div>
 			</div>
+			<div class="map" id="map"></div>
+
 			<div class="data" id="data" style="display: none;">
 				<div class="title"></div>
 				<div class="save">保存结果</div>
