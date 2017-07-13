@@ -26,16 +26,16 @@ public class NightActiveAnalysisController {
 	private Systemconfigs conf;
 
 	@RequestMapping("nightActiveAnalysis")
-	public JSONObject nightActiveAnalysis(String plateNo) {
+	public JSONObject nightActiveAnalysis(String startTime,String endTime) {
 		String url = "http://" + conf.getDomain() + ":" + conf.getPort();
 		return JSONObject.parseObject(
-				HttpClientUtils.doGet(url + "/nightActiveAnalysis?plateNo=" + plateNo, null));
+				HttpClientUtils.doGet(url + "/nightActiveAnalysis?startTime=" + startTime+"&endTime="+endTime+"&plateNo=", null));
 	}
-	@RequestMapping("nightActiveAnalysisALL")
-	public JSONObject nightActiveAnalysisALL() {
+	@RequestMapping("nightActivePlateAnalysis")
+	public JSONObject nightActiveAnalysisALL(String startTime,String endTime,String plateNo) {
 		String url = "http://" + conf.getDomain() + ":" + conf.getPort();
 		return JSONObject.parseObject(
-				HttpClientUtils.doGet(url + "/nightActiveAnalysis?plateNo=", null));
+				HttpClientUtils.doGet(url + "/nightActiveAnalysis?startTime=" + startTime+"&endTime="+endTime+"&plateNo="+plateNo, null));
 	}
 	
 }
