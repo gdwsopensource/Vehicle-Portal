@@ -278,6 +278,8 @@ to {
 	cursor: pointer;
 	background: url(../image/right.png) no-repeat 25% center;
 	background-size: 20px 20px;
+	text-decoration: none;
+    display: block;
 }
 
 .container .aside .item .active {

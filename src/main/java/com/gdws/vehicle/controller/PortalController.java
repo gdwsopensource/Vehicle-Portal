@@ -58,6 +58,7 @@ public class PortalController {
     @RequestMapping("all-query")
     String allQuery() {
         return "all-query";
+
     }
 }
 

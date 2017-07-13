@@ -113,12 +113,12 @@
 		 * type ===>2  获取一年的数据
 		 */
 		var plateNo=QueryObj.plateNo || "",//车牌
-			crossTime=QueryObj.crossTime || ""; //时间 ===>分析当天时间
+			crossDate=QueryObj.crossDate || ""; //时间 ===>分析当天时间
 		if(type === 0){
 			$.ajax({  
 		        type: "get",  
 		        async: false,  
-		        url: "analysisOneDay?crossDate="+crossTime+"&plateNo="+plateNo,  
+		        url: "analysisOneDay?crossDate="+crossDate+"&plateNo="+plateNo,  
 		        success:function(data){
 		        	callback && callback(data);
 		        },
