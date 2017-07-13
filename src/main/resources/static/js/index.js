@@ -21,9 +21,9 @@
 	});
 	// 跳转
 	$('#data').find('.box').find('.table').find('tbody').on('click','tr',function(){
-		var crossTime=$(this).attr('data-crosstime');
+		var crossDate=$(this).attr('data-crossdate');
 		var plateNo=$(this).attr('data-plateno');
-		window.location.href="/behavior-analysis?crossTime="+crossTime+"&plateNo="+plateNo;
+		window.location.href="/behavior-analysis?crossDate="+crossDate+"&plateNo="+plateNo;
 		
 	});
 	
@@ -191,71 +191,131 @@
 		        success: function(data){
 		        	console.log(data);
 		        	if(data.code === 200){	  
-		        		if(data.data === "null") return;
-		        		var low=CarOverviewValueFormat(data.data).low;
-		        		var medium=CarOverviewValueFormat(data.data).medium;
-		        		var serious=CarOverviewValueFormat(data.data).serious;
-		        		myChart_map.setOption({
-		        			series: [
-		      						{
-		      							name: '严重警告', //严重预警
-		      							type: 'effectScatter',
-		      							coordinateSystem: 'bmap',
-		      							data:serious ,
-		      							symbol: 'circle',
-		      							showEffectOn: 'render',
-		      							rippleEffect: {
-		      								brushType: 'stroke'
-		      							},
-		      							itemStyle: {
-		      								normal: {
-		      									color: '#e60012',
-		      									shadowBlur: 10,
-		      									shadowColor: '#333'
-		      								}
-		      							},
-		      							zlevel: 1
-		      						},
-		      						{
-		      							name: '中度警告', //中度预警
-		      							type: 'effectScatter',
-		      							coordinateSystem: 'bmap',
-		      							data:medium,
-		      							symbol: 'circle',
-		      							showEffectOn: 'render',
-		      							rippleEffect: {
-		      								brushType: 'stroke'
-		      							},
-		      							itemStyle: {
-		      								normal: {
-		      									color: '#ff8520',
-		      									shadowBlur: 10,
-		      									shadowColor: '#333'
-		      								}
-		      							},
-		      						},
-		      						{
-		      							name: '低度警告', //低度预警
-		      							type: 'effectScatter',
-		      							coordinateSystem: 'bmap',
-		      							data: low,
-		      							symbol: 'circle',
-		      							showEffectOn: 'render',
-		      							rippleEffect: {
-		      								brushType: 'stroke'
-		      							},
-		      							itemStyle: {
-		      								normal: {
-		      									color: '#ffed27',
-		      									shadowBlur: 10,
-		      									shadowColor: '#333'
-		      								}
-		      							}
-		      					}
-		     				]
-		        		});
+		        		if(data.data === "null"){
+		        			myChart_map.setOption({
+		        				series:[
+		        				        {
+											name: '严重警告', //严重预警
+											type: 'effectScatter',
+											coordinateSystem: 'bmap',
+											data:[] ,
+											symbol: 'circle',
+											showEffectOn: 'render',
+											rippleEffect: {
+												brushType: 'stroke'
+											},
+											itemStyle: {
+												normal: {
+													color: '#e60012',
+													shadowBlur: 10,
+													shadowColor: '#333'
+												}
+											},
+											zlevel: 1
+										}, 
+										{
+			      							name: '中度警告', //中度预警
+			      							type: 'effectScatter',
+			      							coordinateSystem: 'bmap',
+			      							data:[],
+			      							symbol: 'circle',
+			      							showEffectOn: 'render',
+			      							rippleEffect: {
+			      								brushType: 'stroke'
+			      							},
+			      							itemStyle: {
+			      								normal: {
+			      									color: '#ff8520',
+			      									shadowBlur: 10,
+			      									shadowColor: '#333'
+			      								}
+			      							},
+			      						},
+			      						{
+			      							name: '低度警告', //低度预警
+			      							type: 'effectScatter',
+			      							coordinateSystem: 'bmap',
+			      							data: [],
+			      							symbol: 'circle',
+			      							showEffectOn: 'render',
+			      							rippleEffect: {
+			      								brushType: 'stroke'
+			      							},
+			      							itemStyle: {
+			      								normal: {
+			      									color: '#ffed27',
+			      									shadowBlur: 10,
+			      									shadowColor: '#333'
+			      								}
+			      							}
+			      					   }
+		        				]
+		        			});
+		        		}else{
+		        			var low=CarOverviewValueFormat(data.data).low;
+			        		var medium=CarOverviewValueFormat(data.data).medium;
+			        		var serious=CarOverviewValueFormat(data.data).serious;
+			        		myChart_map.setOption({
+			        			series: [
+			      						{
+			      							name: '严重警告', //严重预警
+			      							type: 'effectScatter',
+			      							coordinateSystem: 'bmap',
+			      							data:serious ,
+			      							symbol: 'circle',
+			      							showEffectOn: 'render',
+			      							rippleEffect: {
+			      								brushType: 'stroke'
+			      							},
+			      							itemStyle: {
+			      								normal: {
+			      									color: '#e60012',
+			      									shadowBlur: 10,
+			      									shadowColor: '#333'
+			      								}
+			      							},
+			      							zlevel: 1
+			      						},
+			      						{
+			      							name: '中度警告', //中度预警
+			      							type: 'effectScatter',
+			      							coordinateSystem: 'bmap',
+			      							data:medium,
+			      							symbol: 'circle',
+			      							showEffectOn: 'render',
+			      							rippleEffect: {
+			      								brushType: 'stroke'
+			      							},
+			      							itemStyle: {
+			      								normal: {
+			      									color: '#ff8520',
+			      									shadowBlur: 10,
+			      									shadowColor: '#333'
+			      								}
+			      							},
+			      						},
+			      						{
+			      							name: '低度警告', //低度预警
+			      							type: 'effectScatter',
+			      							coordinateSystem: 'bmap',
+			      							data: low,
+			      							symbol: 'circle',
+			      							showEffectOn: 'render',
+			      							rippleEffect: {
+			      								brushType: 'stroke'
+			      							},
+			      							itemStyle: {
+			      								normal: {
+			      									color: '#ffed27',
+			      									shadowBlur: 10,
+			      									shadowColor: '#333'
+			      								}
+			      							}
+			      					   }
+			     				]
+			        		});
+		        		}	
 		        	}
-		        	
 		        },  
 		        error: function(err){  
 		            console.log("请求出错----"+err);
@@ -308,10 +368,10 @@
 	function readTableFrame(data){
 		var html="";
 		for(var i=0;i<data.length;i++){
-			html+="<tr data-plateNo='"+data[i].plate_no+"' data-crossTime='"+data[i].cross_time+"'>";
+			html+="<tr data-plateNo='"+data[i].plate_no+"' data-crossdate='"+data[i].cross_date+"'>";
 			html+="<td>"+data[i].cross_name+"</td>";
 			html+="<td>"+data[i].plate_no+"</td>";
-			html+="<td>"+data[i].cross_time+"</td>";
+			html+="<td>"+data[i].hour_num+"</td>";
 			html+="<td>"+data[i].alert_type+"</td>";
 			html+="</tr>";
 		}
