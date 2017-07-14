@@ -1,6 +1,6 @@
 (function($) {
-	//地图的高度扣除掉上方搜索高度44px
-	$("#map").css("height",parseInt($("#map").css("height"))-44);
+	// 地图的高度扣除掉上方搜索高度44px
+	$("#map").css("height", parseInt($("#map").css("height")) - 44);
 	// 起始日期设置
 	// 此处调取后台
 	// 绑定车牌改变事件
@@ -9,30 +9,30 @@
 	var minDate = "2016-06-01";
 	var maxDate = "2017-06-29";
 	var defplantNo = "粤AD736T";
-	$(document).keydown(function(event) {
-		var e = event || window.event;
-		var k = e.keyCode || e.which;
-		if (k == 13) {
-			var dayStart = $("#calendar-start>input").val();
-			var dayEnd = $("#calendar-end>input").val();
-			var plateNo = $("#plateno-input").val();
-			var dayStartTime = new Date(dayStart).getTime();
-			var dayEndTime = new Date(dayEnd).getTime();
-			if (dayStartTime > dayEndTime) {
-				alert("起始时间应大于结束时间，请重新选择");
-			} else {
-				trankAnalysisOnPlateNo(plateNo, dayStart, dayEnd);
+	$(document).keydown(
+			function(event) {
+				var e = event || window.event;
+				var k = e.keyCode || e.which;
+				if (k == 13) {
+					var dayStart = $("#calendar-start>input").val();
+					var dayEnd = $("#calendar-end>input").val();
+					var plateNo = $("#plateno-input").val();
+					var dayStartTime = new Date(dayStart).getTime();
+					var dayEndTime = new Date(dayEnd).getTime();
+					if (dayStartTime > dayEndTime) {
+						alert("起始时间应大于结束时间，请重新选择");
+					} else {
+						trankAnalysisOnPlateNo(plateNo, dayStart, dayEnd);
 
-			}
-		}else if(k==72){
-			alert("轨迹分析帮助指南：" +
-					"\n输入车牌号和起始日期后，点查询或按下enter键查询" +
-					"\n鼠标移到卡口汽车图标显示车辆与该卡口信息" +
-					"\n车辆图标按途径概率低中高分别显示黄橙红色" +
-					"\n点击轨迹线查看车辆轨迹，点保存结果可下载结果")
-		}
-	});
-	$("#trajectort-analysis-search-btn").on('click',function(){
+					}
+				} else if (k == 72) {
+					alert("轨迹分析帮助指南：" + "\n输入车牌号和起始日期后，点查询或按下enter键查询"
+							+ "\n鼠标移到卡口汽车图标显示车辆与该卡口信息"
+							+ "\n车辆图标按途径概率低中高分别显示黄橙红色"
+							+ "\n点击轨迹线查看车辆轨迹，点保存结果可下载结果")
+				}
+			});
+	$("#trajectort-analysis-search-btn").on('click', function() {
 		var dayStart = $("#calendar-start>input").val();
 		var dayEnd = $("#calendar-end>input").val();
 		var plateNo = $("#plateno-input").val();
@@ -221,6 +221,17 @@
 			},
 			series : [ {
 				type : 'lines',
+				zlevel : 2,
+				symbol : [ 'none', 'arrow' ],
+				symbolSize : 10,
+				effect : {
+					show : true,
+					constantSpeed : 100,
+					trailLength : 0,
+					symbol : 'image://../image/carwhite.png',
+					symbolSize : 20,
+					loop:true
+				},
 				coordinateSystem : 'bmap',
 				data : [ {
 					coords : lines
@@ -287,18 +298,26 @@
 				$(".cross_info_box").hide();
 			}
 		});
-		//绑定保存结果按钮事件
-		$('#data .save').on('click',function(){
-			if($('.table').length){
-				$('.table').tableExport({
-					filename: "车辆："+$("#plateno-input").val()+"从"+$("#calendar-start>input").val()+"到"+$("#calendar-end>input").val()+"的轨迹分析结果_%YY%-%MM%-%DD%保存",
-					format: "xls",
-					cols:"1,2,3",
+		// 绑定保存结果按钮事件
+		$('#data .save').on(
+				'click',
+				function() {
+					if ($('.table').length) {
+						$('.table').tableExport(
+								{
+									filename : "车辆："
+											+ $("#plateno-input").val() + "从"
+											+ $("#calendar-start>input").val()
+											+ "到"
+											+ $("#calendar-end>input").val()
+											+ "的轨迹分析结果_%YY%-%MM%-%DD%保存",
+									format : "xls",
+									cols : "1,2,3",
+								});
+					} else {
+
+					}
 				});
-			}else{
-				
-			}
-		});
 	}
 
 	function trankAnalysisOnPlateNo(plateNo, startTime, endTime) {
@@ -306,7 +325,11 @@
 			type : "get",
 			async : false,
 			url : "trankAnalysisOnPlateNo",
-			data:{plateNo:plateNo,startTime:startTime,endTime:endTime},
+			data : {
+				plateNo : plateNo,
+				startTime : startTime,
+				endTime : endTime
+			},
 			success : function(data) {
 				if (data.code === 200) {
 					if (data.data == "null") {

@@ -1,4 +1,11 @@
 (function($) {
+	var index_right_height=$(window).height()-$('.header').height()-$('.footer').height();
+	var table_content_height=$('#index_right').find('.table-content').outerHeight(true);
+	var title_height=($('#index_right').find('.title').eq(0).innerHeight())*2;
+	var line_content_height=index_right_height-table_content_height-title_height-15;
+	
+	$('#index_right').find('.line-content').css('max-height',line_content_height);
+	
 	//日期下拉
 	$("#selectAdate2").dateSelector({
 		yearBegin:2016,
@@ -41,24 +48,22 @@
 		var myChart_map = echarts.init(dom_map);
 		var option_map = null;		
 		option_map={
-				title: {
+				/*title: {
 					text: '交通概览图',
 					textStyle: {
 						color: '#fff'
 					},
 					top: 10,
 					left: 10,
-				},
-				/*
-				tooltip:{
+				},	*/		
+				/*tooltip:{
 					formatter:function(params){
 						var res="";
 	                		res+=params.marker+params.seriesName+'<br>';
 	                        res+=params.name+':'+params.data.car_cross_cnt;
 		                return res;
 					}
-				},
-				*/
+				},*/			
 				//设置右侧拦的下标
 				legend: {
 					data: ['严重警告', '中度警告', '低度警告'],
@@ -67,7 +72,7 @@
 					},
 					orient: 'vertical',
 					right: '2%',
-					bottom: '5%'
+					bottom: '240px'
 				},
 				bmap: {
 					center: [113.366286, 23.130748], //113.366286,23.130748 天河
@@ -178,7 +183,7 @@
 					                              "color": "#ffffff"
 					                    }
 					          }
-					]
+					  ]
 					}
 				}
 			}	
