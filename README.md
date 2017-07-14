@@ -1,5 +1,5 @@
 # Vehicle-Portal
-Vehicle analysis  portal project 车辆产品前端项目 zcs分支
+Vehicle analysis  portal project 车辆产品前端项目
 
 ## 前端端口：8081
 * 2017-07-14：更改综合查询上方查询框样式，轨迹分析增加汽车动态行驶轨迹
