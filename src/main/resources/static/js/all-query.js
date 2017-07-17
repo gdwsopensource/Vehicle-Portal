@@ -1,8 +1,15 @@
 (function() {
 
 	// 初始化结果栏的高度
-	var AllResultH = parseInt($(".container .content").height()) - 100;
-	$(".all-result").css('height', AllResultH);
+	var AllResultH = parseInt($(".container .content").height()) - parseInt($(".container .content .all-query .all-search").height());
+	console.log(AllResultH);
+	$(".all-result").css({
+		'height':AllResultH,
+		'top':parseInt($(".container .content .all-query .all-search").height())
+	});
+	$(".all-result-box").css({
+		'height':parseInt($(".all-result").height())-parseInt($(".all-result-desc").height())
+	});
 
 	// 初始化预警类型和车辆类型的下拉列表项
 	var alertTypeArr = [ "", "多次违章", "未年检", "重点关注" ];
@@ -38,10 +45,10 @@
 				var dayEndTime = new Date(endTime).getTime();
 				if (!($("#start-time>input").val() && $("#end-time>input")
 						.val())) {
-					$(".all-result")
+					$(".all-result-box")
 							.html("<div class='msg'>请选择起始时间和结束时间</div>")
 				} else if (dayStartTime > dayEndTime) {
-					$(".all-result").html(
+					$(".all-result-box").html(
 							"<div class='msg'>起始时间应大于结束时间，请重新选择</div>");
 				} else {
 					allQuery(crossName, plateNo, startTime, endTime, alertType,
@@ -68,7 +75,7 @@
 					success : function(data) {
 						if (data.code === 200) {
 							if (data.data == "null") {
-								$(".all-result").html(
+								$(".all-result-box").html(
 										"<div class='msg'>没有查到该条件的结果</div>");
 							} else {
 								var tbodyStr = "";
@@ -85,7 +92,7 @@
 											+ data.data[i].crossDirection
 											+ "</td>" + "</tr>");
 								}
-								$(".all-result")
+								$(".all-result-box")
 										.html(
 												"<table class='table'><thead><tr><th>通过时间</th><th>车牌</th><th>车辆类型</th><th>预警类型</th><th>卡口</th><th>驶向</th></tr></thead><tbody>"
 														+ tbodyStr
@@ -108,7 +115,7 @@
 				cols : "1,2,3,4,5,6",
 			});
 		} else {
-			$(".all-result").html(
+			$(".all-result-box").html(
 			"<div class='msg'>请查询再保存</div>");
 		}
 

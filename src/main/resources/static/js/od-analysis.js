@@ -1,4 +1,6 @@
 (function($) {
+	
+	//输入车牌号时的查询函数
 	var lastSearch = "";
 	$("#data").show();
 	$("#searchAll_btn")
