@@ -7,15 +7,110 @@
 	</header>
 	<div class="container clearfix">
 		<div class="aside" id="aside" th:include="@{include/aside}"></div>
-		<section class="content">
+		<section class="content" style="width:59%;">
 			<div class="map" id="map"></div>
-			<div class="calendar" th:include="@{include/calendar}" id="calendar"></div>
+			<!-- <div class="calendar" th:include="@{include/calendar}" id="calendar"></div> -->
+			<div class="index-title clearfix">
+			  <h2>交通概念图</h2>
+			  <div class="calendar fr" th:include="@{include/calendar}" id="calendar"></div>
+			</div>
 			<div class="cross_info_box">
 				<p class="cross_name"></p>
 				<p class="value"></p>
 				<p class="car_cross_cnt"></p>
 			</div>
-			<div class="data" id="data" style="display: none;">
+			<div class="map-data">
+				<div class="table-title">重点关注车辆列表</div>
+				<div class="table-content">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>卡口</th>
+								<th>车牌</th>
+								<th>时间段</th>
+								<th>预警类型</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>琶洲</td>
+								<td>粤9999</td>
+								<td>11:00-12:00</td>
+								<td>没车检</td>
+							</tr>
+							<tr>
+								<td>琶洲</td>
+								<td>粤9999</td>
+								<td>11:00-12:00</td>
+								<td>没车检</td>
+							</tr>
+							<tr>
+								<td>琶洲</td>
+								<td>粤9999</td>
+								<td>11:00-12:00</td>
+								<td>没车检</td>
+							</tr>
+							<tr>
+								<td>琶洲</td>
+								<td>粤9999</td>
+								<td>11:00-12:00</td>
+								<td>没车检</td>
+							</tr>
+							<tr>
+								<td>琶洲</td>
+								<td>粤9999</td>
+								<td>11:00-12:00</td>
+								<td>没车检</td>
+							</tr>
+							<tr>
+								<td>琶洲</td>
+								<td>粤9999</td>
+								<td>11:00-12:00</td>
+								<td>没车检</td>
+							</tr>
+							<tr>
+								<td>琶洲</td>
+								<td>粤9999</td>
+								<td>11:00-12:00</td>
+								<td>没车检</td>
+							</tr>
+							<tr>
+								<td>琶洲</td>
+								<td>粤9999</td>
+								<td>11:00-12:00</td>
+								<td>没车检</td>
+							</tr>
+							<tr>
+								<td>琶洲</td>
+								<td>粤9999</td>
+								<td>11:00-12:00</td>
+								<td>没车检</td>
+							</tr>
+							<tr>
+								<td>琶洲</td>
+								<td>粤9999</td>
+								<td>11:00-12:00</td>
+								<td>没车检</td>
+							</tr>
+							<tr>
+								<td>琶洲</td>
+								<td>粤9999</td>
+								<td>11:00-12:00</td>
+								<td>没车检</td>
+							</tr>
+							<tr>
+								<td>琶洲</td>
+								<td>粤9999</td>
+								<td>11:00-12:00</td>
+								<td>没车检</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>				
+			</div>
+			
+			<!-- <div class="data" id="data" style="display: none;">
+
 				<div class="title">高发车辆</div>
 				<div class="close"></div>
 				<div class="box">
@@ -29,7 +124,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<!-- <tr data-carid="20">
+							<tr data-carid="20">
 									<td>天河</td>
 									<td>粤Axxxx</td>
 									<td>09:00-10:00</td>
@@ -112,12 +207,242 @@
 									<td>粤Axxxx</td>
 									<td>09:00-10:00</td>
 									<td>逾期未年检</td>
-								</tr> -->
+								</tr>
 						</tbody>
 					</table>
 				</div>
-			</div>
+		    </div> -->
 		</section>
+		<div class="index-right" id="index_right">
+			<div class="title">警力分配</div>
+			<div class="table-content">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>卡口</th>
+							<th>预测通过车辆</th>
+							<th>人员</th>
+							<th>时间</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>琶洲</td>
+							<td>10</td>
+							<td>2</td>
+							<td>10:00:15:00</td>
+						</tr>
+						<tr>
+							<td>琶洲</td>
+							<td>10</td>
+							<td>2</td>
+							<td>10:00:15:00</td>
+						</tr>
+						<tr>
+							<td>琶洲</td>
+							<td>10</td>
+							<td>2</td>
+							<td>10:00:15:00</td>
+						</tr>
+						<tr>
+							<td>琶洲</td>
+							<td>10</td>
+							<td>2</td>
+							<td>10:00:15:00</td>
+						</tr>
+						<tr>
+							<td>琶洲</td>
+							<td>10</td>
+							<td>2</td>
+							<td>10:00:15:00</td>
+						</tr>
+						<tr>
+							<td>琶洲</td>
+							<td>10</td>
+							<td>2</td>
+							<td>10:00:15:00</td>
+						</tr>
+						<tr>
+							<td>琶洲</td>
+							<td>10</td>
+							<td>2</td>
+							<td>10:00:15:00</td>
+						</tr>
+						<tr>
+							<td>琶洲</td>
+							<td>10</td>
+							<td>2</td>
+							<td>10:00:15:00</td>
+						</tr>
+						<tr>
+							<td>琶洲</td>
+							<td>10</td>
+							<td>2</td>
+							<td>10:00:15:00</td>
+						</tr>
+						<tr>
+							<td>琶洲</td>
+							<td>10</td>
+							<td>2</td>
+							<td>10:00:15:00</td>
+						</tr>
+						<tr>
+							<td>琶洲</td>
+							<td>10</td>
+							<td>2</td>
+							<td>10:00:15:00</td>
+						</tr>
+						<tr>
+							<td>琶洲</td>
+							<td>10</td>
+							<td>2</td>
+							<td>10:00:15:00</td>
+						</tr>
+						<tr>
+							<td>琶洲</td>
+							<td>10</td>
+							<td>2</td>
+							<td>10:00:15:00</td>
+						</tr>
+						<tr>
+							<td>琶洲</td>
+							<td>10</td>
+							<td>2</td>
+							<td>10:00:15:00</td>
+						</tr>
+						<tr>
+							<td>琶洲</td>
+							<td>10</td>
+							<td>2</td>
+							<td>10:00:15:00</td>
+						</tr>
+						<tr>
+							<td>琶洲</td>
+							<td>10</td>
+							<td>2</td>
+							<td>10:00:15:00</td>
+						</tr>
+						<tr>
+							<td>琶洲</td>
+							<td>10</td>
+							<td>2</td>
+							<td>10:00:15:00</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="title">图表详情</div>
+			<div class="line-content">
+				<div class="line">
+					<div class="text">琶洲</div>
+					<div class="rate">
+						<div class="bg" style="width:11%;"></div>
+					</div>
+				</div>
+				<div class="line">
+					<div class="text">琶洲</div>
+					<div class="rate">
+						<div class="bg" style="width:15%;"></div>
+					</div>
+				</div>
+				<div class="line">
+					<div class="text">琶洲</div>
+					<div class="rate">
+						<div class="bg" style="width:13%;"></div>
+					</div>
+				</div>
+				<div class="line">
+					<div class="text">琶洲</div>
+					<div class="rate">
+						<div class="bg" style="width:13%;"></div>
+					</div>
+				</div>
+				<div class="line">
+					<div class="text">琶洲</div>
+					<div class="rate">
+						<div class="bg" style="width:13%;"></div>
+					</div>
+				</div>
+				<div class="line">
+					<div class="text">琶洲</div>
+					<div class="rate">
+						<div class="bg" style="width:13%;"></div>
+					</div>
+				</div>
+				<div class="line">
+					<div class="text">琶洲</div>
+					<div class="rate">
+						<div class="bg" style="width:13%;"></div>
+					</div>
+				</div>
+				<div class="line">
+					<div class="text">琶洲</div>
+					<div class="rate">
+						<div class="bg" style="width:13%;"></div>
+					</div>
+				</div>
+				<div class="line">
+					<div class="text">琶洲</div>
+					<div class="rate">
+						<div class="bg" style="width:13%;"></div>
+					</div>
+				</div>
+				<div class="line">
+					<div class="text">琶洲</div>
+					<div class="rate">
+						<div class="bg" style="width:13%;"></div>
+					</div>
+				</div>
+				<div class="line">
+					<div class="text">琶洲</div>
+					<div class="rate">
+						<div class="bg" style="width:13%;"></div>
+					</div>
+				</div>
+				<div class="line">
+					<div class="text">琶洲</div>
+					<div class="rate">
+						<div class="bg" style="width:13%;"></div>
+					</div>
+				</div>
+				<div class="line">
+					<div class="text">琶洲</div>
+					<div class="rate">
+						<div class="bg" style="width:13%;"></div>
+					</div>
+				</div>
+				<div class="line">
+					<div class="text">琶洲</div>
+					<div class="rate">
+						<div class="bg" style="width:13%;"></div>
+					</div>
+				</div>
+				<div class="line">
+					<div class="text">琶洲</div>
+					<div class="rate">
+						<div class="bg" style="width:13%;"></div>
+					</div>
+				</div>
+				<div class="line">
+					<div class="text">琶洲</div>
+					<div class="rate">
+						<div class="bg" style="width:13%;"></div>
+					</div>
+				</div>
+				<div class="line">
+					<div class="text">琶洲</div>
+					<div class="rate">
+						<div class="bg" style="width:13%;"></div>
+					</div>
+				</div>
+				<div class="line">
+					<div class="text">琶洲</div>
+					<div class="rate">
+						<div class="bg" style="width:13%;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<footer th:include="@{include/footer}" class="footer"></footer>
 	<script th:src="@{js/common.js}" async="async" defer="defer"></script>
