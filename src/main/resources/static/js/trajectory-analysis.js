@@ -1,6 +1,6 @@
 (function($) {
 	// 地图的高度扣除掉上方搜索高度44px
-	$("#map").css("height", parseInt($("#map").css("height")) - 44);
+	$("#map").css("height", parseInt($("#map").css("height")) - parseInt($(".container .content .top-search").css("height")));
 	// 起始日期设置
 	// 此处调取后台
 	// 绑定车牌改变事件
@@ -104,7 +104,7 @@
 					crossProDay : parseFloat(dayOne).toFixed(2),
 					value : [ data.data[i].lng, data.data[i].lat ],
 					symbol : 'image://../image/caryellow.png',
-					symbolSize : 20,
+					symbolSize : 20
 				};
 			}
 		}
@@ -230,7 +230,7 @@
 					trailLength : 0,
 					symbol : 'image://../image/carwhite.png',
 					symbolSize : 20,
-					loop:true
+					loop : true
 				},
 				coordinateSystem : 'bmap',
 				data : [ {
@@ -241,7 +241,8 @@
 					normal : {
 						color : 'yellow',
 						opacity : 0.5,
-						width : 3
+						width : 3,
+						type : 'dashed'
 					}
 				}
 			}, {
@@ -259,11 +260,23 @@
 								+ data.alertType);
 				$("#data .box table tbody").empty();
 				var tbodyStr = "";
+				// 下一日变换样式
+				var colorArr = [ "cl0", "cl1" ];
+				var colorIndex = 1;
+				var lastdate = "";
 				for (var i = 0; i < dataLen; i++) {
-					tbodyStr += ("<tr>" + "<td>" + data.data[i].alertTime
-							+ "</td>" + "<td>" + data.data[i].crossName
-							+ "</td>" + "<td>" + data.data[i].crossDirection
-							+ "</td>" + "</tr>");
+					var date = data.data[i].alertTime.split(" ")[0];
+					var time = data.data[i].alertTime.split(" ")[1];
+					if (lastdate != date) {
+						colorIndex = 1 - colorIndex;
+					}
+					lastdate=date;
+					var colorClass = "class='" + colorArr[colorIndex] + "'";
+					tbodyStr += ("<tr " + colorClass + ">" + "<td>"
+							+ date + "</td>" + "<td>"
+							+ time + "</td>" + "<td>"
+							+ data.data[i].crossName + "</td>" + "<td>"
+							+ data.data[i].crossDirection + "</td>" + "</tr>");
 				}
 				$("#data .box table tbody").append(tbodyStr);
 				$("#data").show();
@@ -335,6 +348,7 @@
 					if (data.data == "null") {
 						alert("没有查到在该日期内该车辆的通过卡口记录");
 					} else {
+						console.log(data);
 						initMap(data);
 					}
 

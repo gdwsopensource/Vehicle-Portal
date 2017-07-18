@@ -10,33 +10,37 @@
 		<section class="content">
 			<div class="all-query">
 				<div class="all-search">
-					<div class="cross-name">
-						<span>卡口</span><input type="text" id="cross-name" />
+					<div class="all-search-desc">查询区域</div>
+					<div class="all-search-box">
+						<div class="cross-name">
+							<span>卡口</span><input type="text" id="cross-name" />
+						</div>
+						<div class="plate-no">
+							<span>车牌</span><input type="text" id="plate-no" />
+						</div>
+						<div class="start-time">
+							<span>从</span>
+							<div class="calendar" th:include="@{include/calendar2}"
+								id="start-time"></div>
+						</div>
+						<div class="end-time">
+							<span>到</span>
+							<div class="calendar" th:include="@{include/calendar2}"
+								id="end-time"></div>
+						</div>
+						<div class="alert-type">
+							<span>预警类型</span><select id="alert-type"></select>
+						</div>
+						<div class="plate-type">
+							<span>车辆类型</span><select id="plate-type"></select>
+						</div>
+						<button id="search-btn">综合查询</button>
+						<button id="save-btn">保存结果</button>
 					</div>
-					<div class="plate-no">
-						<span>车牌</span><input type="text" id="plate-no" />
-					</div>
-					<div class="start-time">
-						<span>从日期</span>
-						<div class="calendar" th:include="@{include/calendar2}"
-							id="start-time"></div>
-					</div>
-					<div class="end-time">
-						<span>到</span>
-						<div class="calendar" th:include="@{include/calendar2}"
-							id="end-time"></div>
-					</div>
-					<div class="alert-type">
-						<span>预警类型</span><select id="alert-type"></select>
-					</div>
-					<div class="plate-type">
-						<span>车辆类型</span><select id="plate-type"></select>
-					</div>
-					<button id="search-btn">综合查询</button>
-					<button id="save-btn">保存结果</button>
 				</div>
 				<div class="all-result">
-					
+					<div class="all-result-desc">详情列表</div>
+					<div class="all-result-box"></div>
 				</div>
 			</div>
 		</section>
