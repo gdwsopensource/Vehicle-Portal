@@ -178,7 +178,7 @@
 					var QueryObj={};
 					if(type === 0){
 						QueryObj.plateNo=plateNo;
-						QueryObj.crossDate=new Date().getNowFormatDate();
+						QueryObj.crossTime=new Date().getNowFormatDate();
 						getAnalysisData(type,QueryObj,function(res){
 							console.log(res);
 							if(res.code === 200){
@@ -250,7 +250,7 @@
 				if(type ===0){
 					var QueryObj=new Object();
 						QueryObj.plateNo=plateNo;
-						QueryObj.crossDate=new Date().getNowFormatDate();
+						QueryObj.crossTime=new Date().getNowFormatDate();
 						getAnalysisData(type,QueryObj,function(res){
 							console.log(res);
 							if(res.code === 200){
@@ -346,7 +346,7 @@
 				if(type ===0){
 					var QueryObj=new Object();
 						QueryObj.plateNo=plateNo;
-						QueryObj.crossDate=new Date().getNowFormatDate();
+						QueryObj.crossTime=new Date().getNowFormatDate();
 						getAnalysisData(type,QueryObj,function(res){
 							console.log(res);
 							if(res.code === 200){

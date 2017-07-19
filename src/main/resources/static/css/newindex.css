@@ -1,0 +1,542 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
+	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+	b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
+	details, embed, figure, figcaption, footer, header, hgroup, menu, nav,
+	output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup,
+	menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+	font-size: 14px;
+	font-family: "arial, helvetica, sans-serif";
+	color: #333;
+	overflow: hidden;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-track-piece {
+	background-color: #003f62;
+	opacity: 0.2;
+	-webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+	height: 5px;
+	opacity: 0.7;
+	background-color: #146c97;
+	-webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+	width: 5px;
+	opacity: 0.7;
+	background-color: #146c97;
+	-webkit-border-radius: 6px;
+}
+
+.clearfix:after {
+	display: block;
+	content: "";
+	height: 0;
+	line-height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.textCenter {
+	text-align: center;
+}
+
+.textLeft {
+	text-align: left;
+}
+
+.textRight {
+	text-align: right;
+}
+
+.ml10 {
+	margin-left: 10px;
+}
+
+.mr10 {
+	margin-right: 10px;
+}
+
+@
+keyframes hover-color {from { border-color:#c0c0c0;
+	
+}
+
+to {
+	border-color: #3e97eb;
+}
+
+}
+.magic-radio, .magic-checkbox {
+	position: absolute;
+	display: none;
+}
+
+.magic-radio[disabled], .magic-checkbox[disabled] {
+	cursor: not-allowed;
+}
+
+.magic-radio+label, .magic-checkbox+label {
+	position: relative;
+	display: block;
+	padding-left: 30px;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+.magic-radio+label:hover:before, .magic-checkbox+label:hover:before {
+	animation-duration: 0.4s;
+	animation-fill-mode: both;
+	animation-name: hover-color;
+}
+
+.magic-radio+label:before, .magic-checkbox+label:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	content: '';
+	border: 1px solid #c0c0c0;
+}
+
+.magic-radio+label:after, .magic-checkbox+label:after {
+	position: absolute;
+	display: none;
+	content: '';
+}
+
+.magic-radio[disabled]+label, .magic-checkbox[disabled]+label {
+	cursor: not-allowed;
+	color: #e4e4e4;
+}
+
+.magic-radio[disabled]+label:hover, .magic-radio[disabled]+label:before,
+	.magic-radio[disabled]+label:after, .magic-checkbox[disabled]+label:hover,
+	.magic-checkbox[disabled]+label:before, .magic-checkbox[disabled]+label:after
+	{
+	cursor: not-allowed;
+}
+
+.magic-radio[disabled]+label:hover:before, .magic-checkbox[disabled]+label:hover:before
+	{
+	border: 1px solid #e4e4e4;
+	animation-name: none;
+}
+
+.magic-radio[disabled]+label:before, .magic-checkbox[disabled]+label:before
+	{
+	border-color: #e4e4e4;
+}
+
+.magic-radio:checked+label:before, .magic-checkbox:checked+label:before
+	{
+	animation-name: none;
+}
+
+.magic-radio:checked+label:after, .magic-checkbox:checked+label:after {
+	display: block;
+}
+
+.magic-radio+label:before {
+	border-radius: 50%;
+}
+
+.magic-radio+label:after {
+	top: 7px;
+	left: 7px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #3e97eb;
+}
+
+.magic-radio:checked+label:before {
+	border: 1px solid #3e97eb;
+}
+
+.magic-radio:checked[disabled]+label:before {
+	border: 1px solid #c9e2f9;
+}
+
+.magic-radio:checked[disabled]+label:after {
+	background: #c9e2f9;
+}
+
+.magic-checkbox+label:before {
+	border-radius: 3px;
+}
+
+.magic-checkbox+label:after {
+	top: 2px;
+	left: 7px;
+	box-sizing: border-box;
+	width: 6px;
+	height: 12px;
+	transform: rotate(45deg);
+	border-width: 2px;
+	border-style: solid;
+	border-color: #fff;
+	border-top: 0;
+	border-left: 0;
+}
+
+.magic-checkbox:checked+label:before {
+	border: #3e97eb;
+	background: #3e97eb;
+}
+
+.magic-checkbox:checked[disabled]+label:before {
+	border: #c9e2f9;
+	background: #c9e2f9;
+}
+
+/*bootcss栅格边距调小15px->5px*/
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3,
+	.col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9,
+	.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3,
+	.col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9,
+	.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3,
+	.col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9,
+	.col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3,
+	.col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+.footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	height: 50px;
+	text-align: center;
+	font-size: 14px;
+	line-height: 50px;
+	color: #fff;
+}
+
+.header {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	height: 85px;
+	text-align: center;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, #383d5f),
+		to(#07142b));
+	background: -webkit-linear-gradient(#383d5f 60%, #07142b);
+	background: linear-gradient(#383d5f 60%, #07142b);
+}
+
+.header>h1 {
+	margin-top: 5px;
+	height: 80px;
+	background: url(../image/line03.png) no-repeat center;
+	font-size: 28px;
+	color: #fff;
+}
+
+.main {
+	position: absolute;
+	left: 0;
+	top: 85px;
+	right: 0;
+	bottom: 50px;
+	width: 100%;
+}
+
+/*<<<.main下的通用小模块类样式*/
+.main .title-primary {
+	font-size: 24px;
+	color: #FFFFFF;
+	padding: 12px;
+	height: 48px;
+	background-color: #254689;
+}
+
+.main .table-primary {
+	font-size: 14px;
+	line-height: 30px;
+	color: #FFFFFF;
+	width: 100%;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.main .table-primary>thead>tr {
+	background-color: #1a8aff;
+}
+
+.main .table-primary>thead>tr>th {
+	text-align: center;
+}
+
+.main .table-primary>tbody>tr:hover {
+	background-color: #1a8aff;
+	cursor: pointer;
+}
+
+.main .input-primary {
+	background-color: #0b2f49;
+	border: 1px solid #2756cc;
+	height: 30px;
+	text-align: center;
+}
+
+.main .btn-search {
+	font-size: 14px;
+	text-align: center;
+	line-height: 30px;
+	padding: 0 8px;
+	color: #FFFFFF;
+	border: 0;
+	border-radius: 5px;
+	outline: none;
+	cursor: pointer;
+	background: linear-gradient(#62affc, #4a82b2);
+}
+
+.main .btn-search:hover {
+	background: linear-gradient(#2589f3, #1a5b88);
+}
+
+.main .btn-save {
+	font-size: 14px;
+	text-align: center;
+	line-height: 30px;
+	padding: 0 8px;
+	color: #FFFFFF;
+	border: 0;
+	border-radius: 5px;
+	outline: none;
+	cursor: pointer;
+	background: linear-gradient(#fedf60, #f3b244);
+}
+
+.main .btn-save:hover {
+	background: linear-gradient(#febe42, #f48304);
+}
+
+/*>>>.main下的通用小模块类样式*/
+
+/*<<<.main下的通用大模块盒子样式*/
+.main .row {
+	height: 100%;
+}
+
+.main .row>div {
+	height: 100%;
+}
+
+.main .aside {
+	min-height: 100%;
+	border: 1px solid #04b7e2;
+}
+
+.main .aside .item .text {
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+	background: url(../image/right.png) no-repeat 10% center;
+	background-size: 20px 20px;
+}
+
+.main .aside .item .active {
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+	background: url(../image/arrow.png) no-repeat 10% center;
+	background-size: 20px 20px;
+}
+
+.main .aside .item .item-bar {
+	display: none;
+}
+
+.main .aside .item .item-bar>a {
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+}
+
+.main .aside .item .item-bar>a.active {
+	background: #8a531d;
+}
+
+.main .aside .item .item-bar>a:hover {
+	background: #8a531d;
+}
+
+.main .map {
+	min-height: 100%;
+	border: 1px solid #04b7e2;
+}
+
+/*>>>.main下的通用大模块盒子样式*/
+
+/*<<<各页面特有样式*/
+.main .map .od-map-title {
+	position: absolute;
+	top: 1px;
+	left: 6px;
+}
+
+.main .map .od-map-label{
+	position: absolute;
+	top: 1px;
+	right: 6px;
+	background-color: rgba(0,0,0,0.5);
+	color:#FFFFFF;
+	padding: 0 8px;
+	font-size: 14px;
+	line-height: 30px;
+}
+
+.main .od-data {
+	position: absolute;
+	min-height: 100%;
+	width: 98%;
+	border: 1px solid #04b7e2;
+}
+
+.main  .od-data .od-data-top {
+	position: absolute;
+	top: 0;
+	height: 40%;
+	width: 100%;
+	border-bottom: 1px solid #04b7e2;
+}
+
+.main  .od-data .od-data-top .od-data-top-title {
+	position: absolute;
+	top: 1px;
+	left: 0px;
+}
+
+.main  .od-data .od-data-top .od-msg {
+	position: absolute;
+	top: 59px;
+	width: 100%;
+	font-size: 14px;
+	min-sheight: 14px;
+}
+
+.main .od-data .od-data-top .od-all {
+	position: absolute;
+	top: 80px;
+	width: 100%;
+}
+
+.main .od-data .od-data-top .od-all .od-all-opie {
+	position: absolute;
+	left: 0;
+	width: 50%;
+	height: 100%;
+}
+
+.main .od-data .od-data-top .od-all .od-all-dpie {
+	position: absolute;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+}
+
+.main .od-data .od-data-bottom {
+	position: absolute;
+	top: 40%;
+	height: 60%;
+	width: 100%;
+}
+
+.main  .od-data .od-data-bottom .od-data-bottom-title {
+	position: absolute;
+	top: 1px;
+	left: 0px;
+}
+
+.main  .od-data .od-data-bottom .od-data-bottom-search {
+	position: absolute;
+	top: 69px;
+	margin: 0;
+	color: #FFFFFF;
+	width: 100%;
+	color: #FFFFFF;
+}
+
+.main  .od-data .od-data-bottom .od-data-bottom-search .plate-no {
+	position: absolute;
+	right: 0;
+	font-siez: 14px;
+	line-height: 30px;
+}
+
+.main  .od-data .od-data-bottom .od-data-bottom-search .search-input {
+	width: 100%;
+}
+
+.main  .od-data .od-data-bottom .od-data-bottom-table {
+	position: absolute;
+	top: 120px;
+	overflow: auto;
+	width: 100%;
+}
+
+/*>>>各页面特有样式*/

@@ -5,6 +5,53 @@
 	<header class="header">
 		<h1>卡口数据可视化</h1>
 	</header>
+	<div class="container-fluid main">
+		<div class="row">
+			<div class="col-sm-2">
+				<div class="aside" id="aside" th:include="@{include/aside}"></div>
+			</div>
+			<div class="col-sm-6">
+				<div class="map" id="map"></div>
+			</div>
+			<div class="col-sm-4">
+				<div class="od-data">
+					<div class="od-data-top">
+						<div class="title-primary od-data-top-title">OD分析总览</div>
+						<div class="text-danger text-center od-msg"></div>
+						<div class="od-all">
+							<div class="od-all-opie" id="od-all-opie">O</div>
+							<div class="od-all-dpie" id="od-all-dpie">D</div>
+						</div>
+					</div>
+					<div class="od-data-bottom">
+						<div class="title-primary od-data-bottom-title">OD分析查询</div>
+						<div class="od-data-bottom-search row">
+							<div class="col-sm-2">
+								<span class="plate-no">车牌号：</span>
+							</div>
+							<div class="col-sm-5">
+								<input type="text" class="input-primary search-input"
+									id="search_input" placeholder="例：粤A12345" />
+							</div>
+							<div class="col-sm-1"></div>
+							<div class="col-sm-2">
+								<button class="search-btn btn-search" id="searchAll_btn">查询</button>
+							</div>
+							<div class="col-sm-2">
+								<button class="search-btn btn-save" id="saveResult_btn">保存</button>
+							</div>
+						</div>
+						<div class="od-data-bottom-table">
+							<table class="table-primary">
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 
 	<div class="container clearfix">
 		<div class="aside" id="aside" th:include="@{include/aside}"></div>
 		<section class="content">
@@ -22,10 +69,12 @@
 				</div>
 			</div>
 		</section>
-	</div>
+	</div>s
+	 -->
 	<footer th:include="@{include/footer}" class="footer"></footer>
 	<script th:src="@{js/common.js}" async="async" defer="defer"></script>
 	<script th:src="@{js/od-analysis.js}" async="async" defer="defer"></script>
-	<script th:src="@{libs/tableExporter/tableExporter.min.js}" async="async" defer="defer"></script>
+	<script th:src="@{libs/tableExporter/tableExporter.min.js}"
+		async="async" defer="defer"></script>
 </body>
 </html>
