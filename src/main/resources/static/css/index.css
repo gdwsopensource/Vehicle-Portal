@@ -110,15 +110,13 @@ table {
 	margin-right: 10px;
 }
 
-@
-keyframes hover-color {from { border-color:#c0c0c0;
-	
-}
-
-to {
-	border-color: #3e97eb;
-}
-
+@keyframes hover-color {
+   from {
+	    border-color:#c0c0c0;
+   }
+   to {
+	   border-color: #3e97eb;
+	}
 }
 .magic-radio, .magic-checkbox {
 	position: absolute;
@@ -245,6 +243,9 @@ to {
 	background: #c9e2f9;
 }
 
+
+
+
 .footer {
 	position: absolute;
 	left: 0;
@@ -252,11 +253,9 @@ to {
 	right: 0;
 	height: 50px;
 	text-align: center;
-	font-size: 14px;
 	line-height: 50px;
 	color: #fff;
 }
-
 .header {
 	position: absolute;
 	left: 0;
@@ -269,7 +268,6 @@ to {
 	background: -webkit-linear-gradient(#383d5f 60%, #07142b);
 	background: linear-gradient(#383d5f 60%, #07142b);
 }
-
 .header>h1 {
 	margin-top: 5px;
 	height: 80px;
@@ -423,11 +421,11 @@ to {
 	height:35px;
 	line-height:35px;
 	border-bottom:1px solid #05b7e2;
+	cursor: pointer;
 }
 .container .content .map-data .table>tbody>tr:last-child{
 	border-bottom:0;
 }
-
 
 
 
@@ -535,7 +533,7 @@ to {
 	padding: 10px 30px;
 }
 
-/*轨迹分析页面保存结果按钮*/
+/*杞ㄨ抗鍒嗘瀽椤甸潰淇濆瓨缁撴灉鎸夐挳*/
 .container .content .data .save {
 	position: absolute;
 	right: 100px;
@@ -611,7 +609,7 @@ to {
 	border-bottom: 1px solid #04b7e2;
 }
 
-/*20170717在轨迹分析时切换tr背景色*/
+/*20170717鍦ㄨ建杩瑰垎鏋愭椂鍒囨崲tr鑳屾櫙鑹�*/
 .container .content .data .box .table>tbody>.cl0 {
 	background-color: #0B2F49;
 }
@@ -778,7 +776,7 @@ to {
 	height: 20px;
 	background-size: 24px 33px;
 }
-/*起始双日历*/
+/*璧峰鍙屾棩鍘�*/
 .container .content .top-search {
 	height: 54px;
 	background-color: rgba(60, 134, 200, 0.5);
@@ -872,7 +870,7 @@ to {
 	background: linear-gradient(#2589f3, #1a5b88);
 }
 
-/*20170712综合查询新布局*/
+/*20170712缁煎悎鏌ヨ鏂板竷灞�*/
 @media screen and (max-width:1400px) {
 	.container .content .all-query {
 		position: relvtive;
@@ -1253,7 +1251,7 @@ to {
 	}
 }
 
-/*表格列表*/
+/*琛ㄦ牸鍒楄〃*/
 .container .content .all-query .all-result {
 	position: absolute;
 	width: 98%;
@@ -1345,17 +1343,17 @@ to {
 	color: #FF0000;
 }
 
-/*查询界面的滚动条样式*/
+/*鏌ヨ鐣岄潰鐨勬粴鍔ㄦ潯鏍峰紡*/
 .container .content .all-query .all-result .all-result-box::-webkit-scrollbar
 	{
-	/*滚动条整体样式*/
-	width: 12px; /*高宽分别对应横竖滚动条的尺寸*/
+	/*婊氬姩鏉℃暣浣撴牱寮�*/
+	width: 12px; /*楂樺鍒嗗埆瀵瑰簲妯珫婊氬姩鏉＄殑灏哄*/
 	height: 12px;
 }
 
 .container .content .all-query .all-result .all-result-box::-webkit-scrollbar-thumb
 	{
-	/*滚动条里面小方块*/
+	/*婊氬姩鏉￠噷闈㈠皬鏂瑰潡*/
 	border-radius: 12px;
 	background: #04b7e2;
 	width: 100%;
@@ -1364,7 +1362,7 @@ to {
 
 .container .content .all-query .all-result .all-result-box::-webkit-scrollbar-track
 	{
-	/*滚动条里面轨道*/
+	/*婊氬姩鏉￠噷闈㈣建閬�*/
 	-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
 	border-radius: 0;
 	background: #444444;

@@ -1,11 +1,4 @@
 (function($) {
-	var index_right_height=$(window).height()-$('.header').height()-$('.footer').height();
-	var table_content_height=$('#index_right').find('.table-content').outerHeight(true);
-	var title_height=($('#index_right').find('.title').eq(0).innerHeight())*2;
-	var line_content_height=index_right_height-table_content_height-title_height-15;
-	
-	$('#index_right').find('.line-content').css('max-height',line_content_height);
-	
 	//日期下拉
 	$("#selectAdate2").dateSelector({
 		yearBegin:2016,
@@ -26,15 +19,12 @@
 			selectDayTime=new Date().getNowFormatDate(selectDayTime);
 			readMapFrame(selectDayTime);
 	});
-	// 跳转
-	$('#data').find('.box').find('.table').find('tbody').on('click','tr',function(){
-		var crossDate=$(this).attr('data-crossdate');
-		var plateNo=$(this).attr('data-plateno');
-		window.location.href="/behavior-analysis?crossDate="+crossDate+"&plateNo="+plateNo;
-		
+	/*$('#map_data').find('.table-content').mCustomScrollbar({
+		axis:"y", theme:"my-theme"
 	});
-	
-	
+	$('#map_analysis').find('.table-content').mCustomScrollbar({
+		axis:"y", theme:"my-theme"
+	});*/
 	// 初始化地图
 	initMap();
 	function initMap(){
@@ -260,6 +250,7 @@
 		        			var low=CarOverviewValueFormat(data.data).low;
 			        		var medium=CarOverviewValueFormat(data.data).medium;
 			        		var serious=CarOverviewValueFormat(data.data).serious;
+			        		$('#map_analysis').find('.line-content').html(readLineFrame(data.data));	
 			        		myChart_map.setOption({
 			        			series: [
 			      						{
@@ -319,6 +310,50 @@
 			      					   }
 			     				]
 			        		});
+			        		/*$.ajax({  
+						        type: "get",  
+						        async: false,  
+						        url: "getCarOverviewCross?crossId="+data.data[0].cross_id+"&crossDate="+time,  
+						        success:function(data){
+						        	console.log(data);
+						        	if(data.code === 200){
+						        		if(data.data === "null") return;
+						        		$('#map_data').find('.table-content').html(readTableFrame(data.data));				        		
+						        		// 跳转
+						        		$('#map_data').find('.table-content').find('.table').find('tbody').on('click','tr',function(){
+						        			var crossDate=$(this).attr('data-crossdate');
+						        			var plateNo=$(this).attr('data-plateno');
+						        			window.location.href="/behavior-analysis?crossDate="+crossDate+"&plateNo="+plateNo;
+						        			
+						        		});
+						        	}	
+						        },
+						        error: function(err){  
+						            console.log("请求出错----"+err);
+						        }
+			        		});
+			        		*/
+			        		getCrossCarData(data.data[0].cross_id,time,function(data){
+			        			if(data.code === 200){
+					        		if(data.data === "null") return;
+					        		$('#map_data').find('.table-content').html(readTableFrame(data.data));				        		
+					        		// 跳转
+					        		$('#map_data').find('.table-content').find('.table').find('tbody').on('click','tr',function(){
+					        			var crossDate=$(this).attr('data-crossdate');
+					        			var plateNo=$(this).attr('data-plateno');
+					        			window.location.href="/behavior-analysis?crossDate="+crossDate+"&plateNo="+plateNo;
+					        			
+					        		});
+					        	}
+			        		});
+			        		getCrossPoliceData(data.data[0].cross_id,time,function(data){
+			        			console.log(data);
+			        			if(data.code === 200){
+			        				if(data.data === "null") return;
+			        				$('#map_analysis').find('.table-content').html(readPoliceFrame(data.data));
+			        			}
+			        	   });
+			        	   
 		        		}	
 		        	}
 		        },  
@@ -329,21 +364,18 @@
 			myChart_map.on('click', function(params) {
 				console.log(params);
 				if(params.seriesType=='effectScatter'){
-					$.ajax({  
-				        type: "get",  
-				        async: false,  
-				        url: "getCarOverviewCross?crossId="+params.data.cross_id+"&crossDate="+time,  
-				        success:function(data){
-				        	console.log(data);
-				        	if(data.code === 200){
-				        		if(data.data === "null") return;
-				        		$('#data').find('.box').find('.table').find('tbody').html(readTableFrame(data.data));
-				        		$('#data').show();
-				        	}				        	
-				        },
-				        error: function(err){  
-				            console.log("请求出错----"+err);
-				        }
+					getCrossCarData(params.data.cross_id,time,function(data){
+						if(data.code === 200){
+			        		if(data.data === "null") return;
+			        		$('#map_data').find('.table-content').html(readTableFrame(data.data));				        		
+			        		// 跳转
+			        		$('#map_data').find('.table-content').find('.table').find('tbody').on('click','tr',function(){
+			        			var crossDate=$(this).attr('data-crossdate');
+			        			var plateNo=$(this).attr('data-plateno');
+			        			window.location.href="/behavior-analysis?crossDate="+crossDate+"&plateNo="+plateNo;
+			        			
+			        		});
+			        	}	
 					});
 				}
 			});
@@ -370,8 +402,68 @@
 		}	
 	}
 	
+	//根据crossID获取相对应的经过的车辆
+	function getCrossCarData(crossId,crossDate,callback){
+		$.ajax({  
+	        type: "get",  
+	        async: false,  
+	        url: "getCarOverviewCross?crossId="+crossId+"&crossDate="+crossDate,  
+	        success:function(data){
+	        	callback && callback(data);
+	        },
+	        error: function(err){  
+	            console.log("请求出错----"+err);
+	        }
+		});
+	}
+	//根据crossId获取相对应得警力分配
+	function getCrossPoliceData(crossId,crossDate,callback){
+		$.ajax({  
+	        type: "get",  
+	        async: false,  
+	        url: "getCrossPolice?crossId="+crossId+"&crossDate="+crossDate,  
+	        success:function(data){
+	        	callback && callback(data);
+	        },
+	        error: function(err){  
+	            console.log("请求出错----"+err);
+	        }
+		});
+	}
+	function readPoliceFrame(data){
+		var html="";
+			html+="<table>";
+			html+="<thead><tr><th>卡口</th><th>预测通过车辆</th><th>人员</th><th>时间</th></tr></thead>";
+			html+="<tbody>";
+			for(var i=0;i<data.length;i++){
+				html+="<tr>";
+				html+="<td>"+data[i].cross_name+"</td>";
+				html+="<td>"+data[i].cross_car_cnt+"</td>";
+				html+="<td>"+data[i].cross_people+"</td>";
+				html+="<td>"+data[i].cross_time+"</td>";
+			}
+			html+="</tbody>";
+			html+="</table>";
+			return html;
+	}
+	
+	function readLineFrame(data){
+		var html="";
+		for(var i=0;i<data.length;i++){
+			html+="<div class='line'>";
+			html+="<div class='text'>"+data[i].cross_name+"</div>";
+			html+="<div class='rate'>";
+			html+="<div class='bg' style='width:"+(data[i].cross_warning_type_pie)*100+"%;'></div>";
+			html+="</div>";
+			html+="</div>";
+		}
+		return html;
+	}
+	
 	function readTableFrame(data){
 		var html="";
+			html+="<table>";
+			html+="<thead><tr><td>卡口</td><td>车牌</td><td>时间</td><td>预警类型</td></tr></thead>";
 		for(var i=0;i<data.length;i++){
 			html+="<tr data-plateNo='"+data[i].plate_no+"' data-crossdate='"+data[i].cross_date+"'>";
 			html+="<td>"+data[i].cross_name+"</td>";
