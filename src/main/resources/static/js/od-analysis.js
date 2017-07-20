@@ -176,10 +176,13 @@
 		$(".map")
 				.append('<div class="title-primary od-map-title">OD分析地图</div>');
 		$(".map").append('<div class="od-map-label"></div>');
-		//绑定地图事件
+		// 绑定地图事件
 		myChart_map.on('mouseover', function(params) {
 			if (params.seriesType == 'lines') {
-				$(".od-map-label").html("<p>月份："+params.data.crossMonth+"</p><p>出发卡口："+params.data.originCrossName+"</p><p>目的卡口："+params.data.destCrossName+"</p>");
+				$(".od-map-label").html(
+						"<p>月份：" + params.data.crossMonth + "</p><p>出发卡口："
+								+ params.data.originCrossName + "</p><p>目的卡口："
+								+ params.data.destCrossName + "</p>");
 			}
 		});
 		myChart_map.on('mouseout', function(params) {
@@ -192,7 +195,12 @@
 	// 初始化总览饼状图
 	function initAll(domId, data, title) {
 		var dom_o = document.getElementById(domId);
-		var myChart_o = echarts.init(dom_o);
+		console.log(domId);
+		if (domId == "od-all-opie") {
+			var myChart_o = echarts.init(dom_o);
+		} else if (domId == "od-all-dpie") {
+			var myChart_d = echarts.init(dom_o);
+		}
 		var option_o = null;
 		option_o = {
 			title : {
@@ -232,7 +240,20 @@
 				}
 			} ]
 		};
-		myChart_o.setOption(option_o);
+		//绑定屏幕横向拉伸饼图自适应事件
+		if (domId == "od-all-opie") {
+			myChart_o.setOption(option_o);
+			$(window).on('resize',function(){
+				myChart_o.resize();
+				console.log(1);
+			});
+		} else if (domId == "od-all-dpie") {
+			myChart_d.setOption(option_o);
+			$(window).on('resize',function(){
+				myChart_d.resize();
+			});
+		}
+		
 	}
 
 	// 数据格式化成饼图数据
