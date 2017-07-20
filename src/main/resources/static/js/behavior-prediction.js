@@ -8,21 +8,26 @@
 	});
 	$('#saveResult_btn').on('click', function() {
 		var searchVal = $('#search_input').val();
-		if ($('.table').length) {
-			$('.table').tableExport({
+		if ($('#result').find('.table').length) {
+			$('#result').find('.table').tableExport({
 				filename: "车辆："+lastSearch+"的预测结果_%YY%-%MM%-%DD%保存",
 				format: "xls",
 				cols:"1,2,3,4",
 			});
 		} else {
-			$('#data').find('.box').find('.result').html("请查询再保存");
+			$('#result').html("请查询再保存");
 		}
 
 	});
+	$('#data').find('.open-box').find('.box-close').on('click',function(){
+		$('#data').find('.open-box').hide();
+		return false;
+	});
+	
 	function readTableFrame(data,data_length){
 		var html="",data_length=data_length || 10;
 			html+="<table class='table'>";
-			html+="<thead><tr><th>车牌号</th><th>预测地点</th><th>可能时间</th><th>预测类型</th></tr></thead>";
+			html+="<thead><tr><th class='text-center'>车牌号</th><th class='text-center'>预测地点</th><th class='text-center'>可能时间</th><th class='text-center'>预测类型</th></tr></thead>";
 			html+="<tbody>";
 			for(var i=0;i<data_length;i++){
 				html+="<tr>";
@@ -45,12 +50,12 @@
 				console.log(data);
 				if (data.code === 200) {
 					if (data.data === "null") {
-						$('#data').find('.box').find('.result').html('没有查询到结果')
+						$('#result').html('没有查询到结果');
 					} else {
 						lastSearch = plateNo;
-						$('#data').find('.box').find('.result').html(
-								readTableFrame(data.data,
-										isAll ? data.data.length : ""));
+						$('#result').html(readTableFrame(data.data,isAll ? data.data.length : "")).mCustomScrollbar({
+							axis:"y", theme:"my-theme"
+						});
 					}
 				}
 			},

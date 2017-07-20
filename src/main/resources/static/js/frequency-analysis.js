@@ -16,6 +16,9 @@
 				        			$('#result').html('没有查询到结果~');
 				        		}else{
 				        			$('#result').html(readTableFrameCrossName(data.data));
+				        			$('#result').mCustomScrollbar({
+										axis:"y", theme:"my-theme"
+									});
 				        		}
 				        	}
 				        },
@@ -35,6 +38,9 @@
 				        			$('#result').html('没有查询到结果~');
 				        		}else{
 				        			$('#result').html(readTableFrameAll(data.data));
+				        			$('#result').mCustomScrollbar({
+										axis:"y", theme:"my-theme"
+									});
 				        		}
 				        	}
 				        },
@@ -49,11 +55,12 @@
 	function readTableFrameAll(data){
 		var html="";
 		html+="<table class='table'>";
-		html+="<thead><tr><th>卡口名称</th><th>车牌号</th><th>预警次数</th><th>预警类型</th></tr></thead>";
+		//html+="<thead><tr><th>卡口名称</th><th>车牌号</th><th>预警次数</th><th>预警类型</th></tr></thead>";
+		html+="<thead><tr><th class='text-center'>车牌号</th><th class='text-center'>预警次数</th><th class='text-center'>预警类型</th></tr></thead>";
 		html+="<tbody>";
 		for(var i=0;i<data.length;i++){
 				html+="<tr>";
-				html+="<td>"+data[i].cross_name+"</td>";
+				//html+="<td>"+data[i].cross_name+"</td>";
 				html+="<td>"+data[i].car_plateNo+"</td>";
 				html+="<td>"+data[i].warning_total+"</td>";
 				html+="<td>"+data[i].warning_type+"</td>"
@@ -66,7 +73,7 @@
 	function readTableFrameCrossName(data){
 		var html="";
 		html+="<table class='table'>";
-		html+="<thead><tr><th>车牌号</th><th>预警次数</th><th>预警类型</th></tr></thead>";
+		html+="<thead><tr><th class='text-center'>车牌号</th><th class='text-center'>预警次数</th><th class='text-center'>预警类型</th></tr></thead>";
 		html+="<tbody>";
 		for(var i=0;i<data.length;i++){
 				html+="<tr>";

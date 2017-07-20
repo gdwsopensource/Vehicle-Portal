@@ -50,10 +50,17 @@
             $(this).find('.text').removeClass("active");
         }
     });
-	//滚动table
+	/*//滚动table
 	$('#data').find('.box').mCustomScrollbar({
 		axis:"y", theme:"my-theme"
-	});
+	});*/
+    
+    
+	/*//滚动table
+	$('#result').mCustomScrollbar({
+		axis:"y", theme:"my-theme"
+	});*/
+	
 	//关闭弹窗
 	$('#data').on('click','.close',function(){
 		$('#data').hide();

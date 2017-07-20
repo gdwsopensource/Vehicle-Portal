@@ -19,12 +19,8 @@
 			selectDayTime=new Date().getNowFormatDate(selectDayTime);
 			readMapFrame(selectDayTime);
 	});
-	/*$('#map_data').find('.table-content').mCustomScrollbar({
-		axis:"y", theme:"my-theme"
-	});
-	$('#map_analysis').find('.table-content').mCustomScrollbar({
-		axis:"y", theme:"my-theme"
-	});*/
+
+	
 	// 初始化地图
 	initMap();
 	function initMap(){
@@ -179,204 +175,113 @@
 			}	
 		if(option_map && typeof option_map ==="object"){
 			myChart_map.setOption(option_map);
-			$.ajax({  
-		        type: "get",  
-		        async: false,  
-		        url: "getCarOverview?crossDate="+time,  
-		        success: function(data){
-		        	console.log(data);
-		        	if(data.code === 200){	  
-		        		if(data.data === "null"){
-		        			myChart_map.setOption({
-		        				series:[
-		        				        {
-											name: '严重警告', //严重预警
-											type: 'effectScatter',
-											coordinateSystem: 'bmap',
-											data:[] ,
-											symbol: 'circle',
-											showEffectOn: 'render',
-											rippleEffect: {
-												brushType: 'stroke'
-											},
-											itemStyle: {
-												normal: {
-													color: '#e60012',
-													shadowBlur: 10,
-													shadowColor: '#333'
-												}
-											},
-											zlevel: 1
-										}, 
-										{
-			      							name: '中度警告', //中度预警
-			      							type: 'effectScatter',
-			      							coordinateSystem: 'bmap',
-			      							data:[],
-			      							symbol: 'circle',
-			      							showEffectOn: 'render',
-			      							rippleEffect: {
-			      								brushType: 'stroke'
-			      							},
-			      							itemStyle: {
-			      								normal: {
-			      									color: '#ff8520',
-			      									shadowBlur: 10,
-			      									shadowColor: '#333'
-			      								}
-			      							},
-			      						},
-			      						{
-			      							name: '低度警告', //低度预警
-			      							type: 'effectScatter',
-			      							coordinateSystem: 'bmap',
-			      							data: [],
-			      							symbol: 'circle',
-			      							showEffectOn: 'render',
-			      							rippleEffect: {
-			      								brushType: 'stroke'
-			      							},
-			      							itemStyle: {
-			      								normal: {
-			      									color: '#ffed27',
-			      									shadowBlur: 10,
-			      									shadowColor: '#333'
-			      								}
-			      							}
-			      					   }
-		        				]
-		        			});
-		        		}else{
-		        			var low=CarOverviewValueFormat(data.data).low;
-			        		var medium=CarOverviewValueFormat(data.data).medium;
-			        		var serious=CarOverviewValueFormat(data.data).serious;
-			        		$('#map_analysis').find('.line-content').html(readLineFrame(data.data));	
-			        		myChart_map.setOption({
-			        			series: [
-			      						{
-			      							name: '严重警告', //严重预警
-			      							type: 'effectScatter',
-			      							coordinateSystem: 'bmap',
-			      							data:serious ,
-			      							symbol: 'circle',
-			      							showEffectOn: 'render',
-			      							rippleEffect: {
-			      								brushType: 'stroke'
-			      							},
-			      							itemStyle: {
-			      								normal: {
-			      									color: '#e60012',
-			      									shadowBlur: 10,
-			      									shadowColor: '#333'
-			      								}
-			      							},
-			      							zlevel: 1
-			      						},
-			      						{
-			      							name: '中度警告', //中度预警
-			      							type: 'effectScatter',
-			      							coordinateSystem: 'bmap',
-			      							data:medium,
-			      							symbol: 'circle',
-			      							showEffectOn: 'render',
-			      							rippleEffect: {
-			      								brushType: 'stroke'
-			      							},
-			      							itemStyle: {
-			      								normal: {
-			      									color: '#ff8520',
-			      									shadowBlur: 10,
-			      									shadowColor: '#333'
-			      								}
-			      							},
-			      						},
-			      						{
-			      							name: '低度警告', //低度预警
-			      							type: 'effectScatter',
-			      							coordinateSystem: 'bmap',
-			      							data: low,
-			      							symbol: 'circle',
-			      							showEffectOn: 'render',
-			      							rippleEffect: {
-			      								brushType: 'stroke'
-			      							},
-			      							itemStyle: {
-			      								normal: {
-			      									color: '#ffed27',
-			      									shadowBlur: 10,
-			      									shadowColor: '#333'
-			      								}
-			      							}
-			      					   }
-			     				]
-			        		});
-			        		/*$.ajax({  
-						        type: "get",  
-						        async: false,  
-						        url: "getCarOverviewCross?crossId="+data.data[0].cross_id+"&crossDate="+time,  
-						        success:function(data){
-						        	console.log(data);
-						        	if(data.code === 200){
-						        		if(data.data === "null") return;
-						        		$('#map_data').find('.table-content').html(readTableFrame(data.data));				        		
-						        		// 跳转
-						        		$('#map_data').find('.table-content').find('.table').find('tbody').on('click','tr',function(){
-						        			var crossDate=$(this).attr('data-crossdate');
-						        			var plateNo=$(this).attr('data-plateno');
-						        			window.location.href="/behavior-analysis?crossDate="+crossDate+"&plateNo="+plateNo;
-						        			
-						        		});
-						        	}	
-						        },
-						        error: function(err){  
-						            console.log("请求出错----"+err);
-						        }
-			        		});
-			        		*/
-			        		getCrossCarData(data.data[0].cross_id,time,function(data){
-			        			if(data.code === 200){
-					        		if(data.data === "null") return;
-					        		$('#map_data').find('.table-content').html(readTableFrame(data.data));				        		
-					        		// 跳转
-					        		$('#map_data').find('.table-content').find('.table').find('tbody').on('click','tr',function(){
-					        			var crossDate=$(this).attr('data-crossdate');
-					        			var plateNo=$(this).attr('data-plateno');
-					        			window.location.href="/behavior-analysis?crossDate="+crossDate+"&plateNo="+plateNo;
-					        			
-					        		});
-					        	}
-			        		});
-			        		getCrossPoliceData(data.data[0].cross_id,time,function(data){
-			        			console.log(data);
-			        			if(data.code === 200){
-			        				if(data.data === "null") return;
-			        				$('#map_analysis').find('.table-content').html(readPoliceFrame(data.data));
-			        			}
-			        	   });
-			        	   
-		        		}	
-		        	}
-		        },  
-		        error: function(err){  
-		            console.log("请求出错----"+err);
-		        }
-		    });
+			getCrossData(time,function(data){
+				console.log(data);
+				var low=CarOverviewValueFormat(data.data).low;
+        		var medium=CarOverviewValueFormat(data.data).medium;
+        		var serious=CarOverviewValueFormat(data.data).serious;
+        		myChart_map.setOption({
+        			series: [
+      						{
+      							name: '严重警告', //严重预警
+      							type: 'effectScatter',
+      							coordinateSystem: 'bmap',
+      							data:serious ,
+      							symbol: 'circle',
+      							showEffectOn: 'render',
+      							rippleEffect: {
+      								brushType: 'stroke'
+      							},
+      							itemStyle: {
+      								normal: {
+      									color: '#e60012',
+      									shadowBlur: 10,
+      									shadowColor: '#333'
+      								}
+      							},
+      							zlevel: 1
+      						},
+      						{
+      							name: '中度警告', //中度预警
+      							type: 'effectScatter',
+      							coordinateSystem: 'bmap',
+      							data:medium,
+      							symbol: 'circle',
+      							showEffectOn: 'render',
+      							rippleEffect: {
+      								brushType: 'stroke'
+      							},
+      							itemStyle: {
+      								normal: {
+      									color: '#ff8520',
+      									shadowBlur: 10,
+      									shadowColor: '#333'
+      								}
+      							},
+      						},
+      						{
+      							name: '低度警告', //低度预警
+      							type: 'effectScatter',
+      							coordinateSystem: 'bmap',
+      							data: low,
+      							symbol: 'circle',
+      							showEffectOn: 'render',
+      							rippleEffect: {
+      								brushType: 'stroke'
+      							},
+      							itemStyle: {
+      								normal: {
+      									color: '#ffed27',
+      									shadowBlur: 10,
+      									shadowColor: '#333'
+      								}
+      							}
+      					   }
+     				]
+        		});
+        		getCrossCarData(data.data[0].cross_id,time,function(data){
+        			console.log(data);
+        			$('#map_data').find('.table-content').html(readMapTableFrame(data.data)).find('table').find('tbody').on('click','tr',function(){
+	        			var crossDate=$(this).attr('data-crossdate');
+	        			var plateNo=$(this).attr('data-plateno');
+	        			window.location.href="/behavior-analysis?crossDate="+crossDate+"&plateNo="+plateNo;	        			
+	        		});        	
+        			$('#map_data').find('.table-content').mCustomScrollbar({
+	        			axis:"y", theme:"my-theme"
+	        		});
+        		});
+        		getCrossPoliceData(data.data[0].cross_id,time,function(data){
+        			console.log(data);
+        			$('#map_analysis').find('.table-content').html(readPoliceFrame(data.data)).mCustomScrollbar({
+	        			axis:"y", theme:"my-theme"
+	        		});
+        	   });
+        		$('#map_analysis').find('.line-content').html(readLineFrame(data.data)).mCustomScrollbar({
+        			axis:"y", theme:"my-theme"
+        		});	
+			});
+			
+		
 			myChart_map.on('click', function(params) {
 				console.log(params);
-				if(params.seriesType=='effectScatter'){
+				if(params.seriesType=='effectScatter'){					
 					getCrossCarData(params.data.cross_id,time,function(data){
-						if(data.code === 200){
-			        		if(data.data === "null") return;
-			        		$('#map_data').find('.table-content').html(readTableFrame(data.data));				        		
-			        		// 跳转
-			        		$('#map_data').find('.table-content').find('.table').find('tbody').on('click','tr',function(){
-			        			var crossDate=$(this).attr('data-crossdate');
-			        			var plateNo=$(this).attr('data-plateno');
-			        			window.location.href="/behavior-analysis?crossDate="+crossDate+"&plateNo="+plateNo;
-			        			
-			        		});
-			        	}	
+						console.log(data);
+		        		$('#map_data').find('.table-content').html(readMapTableFrame(data.data)).find('table').find('tbody').on('click','tr',function(){
+		        			var crossDate=$(this).attr('data-crossdate');
+		        			var plateNo=$(this).attr('data-plateno');
+		        			window.location.href="/behavior-analysis?crossDate="+crossDate+"&plateNo="+plateNo;	        			
+		        		});
+		        		$('#map_data').find('.table-content').mCustomScrollbar({
+		        			axis:"y", theme:"my-theme"
+		        		});
 					});
+					getCrossPoliceData(params.data.cross_id,time,function(data){
+	        			console.log(data);
+	        			$('#map_analysis').find('.table-content').html(readPoliceFrame(data.data)).mCustomScrollbar({
+		        			axis:"y", theme:"my-theme"
+		        		});
+	        	    });
 				}
 			});
 			myChart_map.on('mouseover',function(params){
@@ -401,6 +306,23 @@
 			});
 		}	
 	}
+	//根据时间获取cross所有的数据
+	function getCrossData(crossDate,callback){
+		$.ajax({  
+	        type: "get",  
+	        async: false,  
+	        url: "getCarOverview?crossDate="+crossDate,  
+	        success:function(data){
+	        	if(data.code === 200){
+	        		if(data.data === null) return;
+	        		callback && callback(data);
+	        	}        	
+	        },
+	        error: function(err){  
+	            console.log("请求出错----"+err);
+	        }
+		});
+	}
 	
 	//根据crossID获取相对应的经过的车辆
 	function getCrossCarData(crossId,crossDate,callback){
@@ -409,7 +331,10 @@
 	        async: false,  
 	        url: "getCarOverviewCross?crossId="+crossId+"&crossDate="+crossDate,  
 	        success:function(data){
-	        	callback && callback(data);
+	        	if(data.code === 200){
+	        		if(data.data === null) return;
+	        		callback && callback(data);
+	        	} 
 	        },
 	        error: function(err){  
 	            console.log("请求出错----"+err);
@@ -423,7 +348,10 @@
 	        async: false,  
 	        url: "getCrossPolice?crossId="+crossId+"&crossDate="+crossDate,  
 	        success:function(data){
-	        	callback && callback(data);
+	        	if(data.code === 200){
+	        		if(data.data === null) return;
+	        		callback && callback(data);
+	        	} 
 	        },
 	        error: function(err){  
 	            console.log("请求出错----"+err);
@@ -432,7 +360,7 @@
 	}
 	function readPoliceFrame(data){
 		var html="";
-			html+="<table>";
+			html+="<table class='table' style='border-left:0;'>";
 			html+="<thead><tr><th>卡口</th><th>预测通过车辆</th><th>人员</th><th>时间</th></tr></thead>";
 			html+="<tbody>";
 			for(var i=0;i<data.length;i++){
@@ -460,9 +388,9 @@
 		return html;
 	}
 	
-	function readTableFrame(data){
+	function readMapTableFrame(data){
 		var html="";
-			html+="<table>";
+			html+="<table class='table' style='border:0;'>";
 			html+="<thead><tr><td>卡口</td><td>车牌</td><td>时间</td><td>预警类型</td></tr></thead>";
 		for(var i=0;i<data.length;i++){
 			html+="<tr data-plateNo='"+data[i].plate_no+"' data-crossdate='"+data[i].cross_date+"'>";
@@ -474,6 +402,9 @@
 		}
 		return html;
 	}
+	
+	
+	
 	//格式化数据 
 	function CarOverviewValueFormat(data){
 		var low=[],medium=[],serious=[];

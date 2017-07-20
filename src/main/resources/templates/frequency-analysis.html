@@ -1,11 +1,125 @@
 <!DOCTYPE html>
 <html>
 <head th:include="include/head" th:with="title='卡口数据可视化'"></head>
-<body style="background-color: #00011f;">
+<style>
+body {
+	background-color: #00011f;
+}
+
+.main {
+	position: absolute;
+	left: 0;
+	top: 85px;
+	right: 0;
+	bottom: 50px;
+}
+
+.main .row, .main .row>div {
+	height: 100%;
+}
+
+.aside {
+	height: 100%;
+	width: 100%;
+	border: 1px solid #04b7e2;
+}
+
+.aside .item .text {
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+	background: url(../image/right.png) no-repeat 25% center;
+	background-size: 20px 20px;
+}
+
+.aside .item .active {
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+	background: url(../image/arrow.png) no-repeat 25% center;
+	background-size: 20px 20px;
+}
+
+.aside .item .item-bar {
+	display: none;
+}
+
+.aside .item .item-bar>a {
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+}
+
+.aside .item .item-bar>a.active {
+	background: #8a531d;
+}
+
+.aside .item .item-bar>a:hover {
+	background: #8a531d;
+}
+.main .data{
+	height:100%;
+	width:100%;
+	background: url(../image/mapbg.jpg) no-repeat center;
+	background-size: cover;
+	border: 1px solid #04b7e2;
+}
+
+.main .data .title{
+	height:35px;
+	color:#fff;
+	line-height:35px;
+	padding-left: 20px;
+	margin-bottom:5px;
+}
+.main .data .search{
+	padding:0 20px;
+	margin-top:10px;
+}
+.main .data  .result{
+	color: #fff;
+    padding: 0 20px;
+    margin-top: 20px;
+    height:80%;
+}
+</style>
+
+<body>
      <header class="header">
 		<h1>卡口数据可视化</h1>
 	</header>
-	<div class="container clearfix">
+	<div class="container-fluid main">
+		<div class="row">
+			<div class="col-md-2 col-sm-2 col-xs-2 col-lg-2">
+				<div class="aside" id="aside" th:include="@{include/aside}"></div>
+			</div>
+			<div class="col-md-10 col-sm-10 col-xs-10 col-lg-10">
+				<div class="data" id="data">
+					<div class="title">频次分析</div>
+					<form class="form-inline search">
+						<div class="form-group">
+							<input type="date" name="startTime" id="startTime" class="form-control"
+								placeholder="请输入日期 yyyy-mm-dd" />
+							<input type="date" name="endTime" id="endTime" class="form-control"
+								placeholder="请输入日期 yyyy-mm-dd" />
+							<input type="text" name="cross_name" id="cross_name" class="form-control"
+								placeholder="请输入你要查询的卡口"/>	
+							<button type="button" class="btn btn-primary" id="search_btn">查询</button>
+						</div>
+					</form>	
+					<div class="result" id="result"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <div class="container clearfix">
 		<div class="aside" id="aside" th:include="@{include/aside}"></div>
 		<section class="content">
 			<div class="data" id="data" style="width: 100%; height: 100%; background: none; left: 0; top: 0;">
@@ -13,31 +127,15 @@
 				<div class="box">
 					<div class="search">
 							<input type="date" name="startTime" id="startTime" class="search-input mr10"
-								placeholder="请输入日期 yyyy--mm--dd" />
+								placeholder="请输入日期 yyyy-mm-dd" />
 							<input type="date" name="endTime" id="endTime" class="search-input mr10"
-								placeholder="请输入日期 yyyy--mm--dd" />
+								placeholder="请输入日期 yyyy-mm-dd" />
 							<input type="text" name="cross_name" id="cross_name" class="search-input"
 								placeholder="请输入你要查询的卡口" style="height:50px;line-height:50px;vertical-align: bottom;"/>	
 							<button type="button" class="search-btn" id="search_btn">查询</button>
 					</div>
 					<div class="result" id="result">
-						<!-- <table class="table">
-							   <thead>
-									<tr>
-										<th>车牌号</th>
-										<th>预警次数</th>
-										<th>预警类型</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>粤H2222</td>
-										<td>89</td>
-										<td>多次违章</td>
-									</tr>
-								</tbody>
-						</table> -->
-						<!-- <table class="table">
+						 <table class="table">
 							<thead>
 							  <tr>
 							        <th>卡口名称</th>
@@ -54,12 +152,13 @@
 										<td>多次违章</td>
 									</tr>
 							</tbody>						
-						</table> -->
+						</table>
 					</div>
 				</div>
 			</div>
 		</section>
 	</div>
+	 -->
 	<footer th:include="@{include/footer}" class="footer"></footer>
 	<script th:src="@{js/common.js}" async="async" defer="defer"></script>
 	<script th:src="@{js/frequency-analysis.js}" async="async" defer="defer"></script>

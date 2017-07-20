@@ -1,85 +1,4 @@
 (function($){
-	/*$.get('data/hangzhou-tracks.json', function (data) {
-	    var points = [].concat.apply([], data.map(function (track) {
-	        return track.map(function (seg) {
-	            return seg.coord.concat([1]);
-	        });
-	    }));
-	    console.log(points);
-	    var dom_hot = document.getElementById('hot');
-		var myChart_hot = echarts.init(dom_hot);
-		myChart_hot.setOption(option = {
-	        animation: false,
-	        bmap: {
-	            center: [120.13066322374, 30.240018034923],
-	            zoom: 14,
-	            roam: true
-	        },
-	        visualMap: {
-	            show: false,
-	            top: 'top',
-	            min: 0,
-	            max: 5,
-	            seriesIndex: 0,
-	            calculable: true,
-	            inRange: {
-	                color: ['blue', 'blue', 'green', 'yellow', 'red']
-	            }
-	        },
-	        series: [{
-	            type: 'heatmap',
-	            coordinateSystem: 'bmap',
-	            data: points,
-	            pointSize: 5,
-	            blurSize: 6
-	        }]
-	    });
-	});*/
-	
-	
-	
-	/*var analysis_day={
-			"code":200,
-			"message":"success",
-			"total":5, 
-			"data":[
-				{
-					"cross_id":1111,
-					"cross_name":"卡口1",
-					"cross_car_total":30,
-					"day_time":["00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","24:00"],
-					"cross_car_data":[2,2,3,5,0,7,0,9,3,0,1,2,4,5,5,7,8,0,3,2,2,0,3,4,0,0]
-				},
-				{
-					"cross_id":2222,
-					"cross_name":"卡口2",
-					"cross_car_total":33,
-					"day_time":["00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","24:00"],
-					"cross_car_data":[2,0,3,4,0,7,0,9,3,0,1,4,4,4,5,7,3,0,1,1,1,0,3,4,0,0]
-				},
-				{
-					"cross_id":3333,
-					"cross_name":"卡口3",
-					"cross_car_total":33,
-					"day_time":["00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","24:00"],
-					"cross_car_data":[2,0,3,4,0,7,0,9,3,0,1,4,4,4,5,7,3,0,1,1,1,0,3,4,0,0]
-				},
-				{
-					"cross_id":4444,
-					"cross_name":"卡口4",
-					"cross_car_total":23,
-					"day_time":["00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","24:00"],
-					"cross_car_data":[2,0,3,4,0,7,0,9,3,0,1,4,4,4,5,7,3,0,1,1,1,0,3,4,0,0]
-				},
-				{
-					"cross_id":5555,
-					"cross_name":"卡口5",
-					"cross_car_total":34,
-					"day_time":["00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","24:00"],
-					"cross_car_data":[2,0,3,4,0,7,0,9,3,0,1,4,4,4,5,7,3,0,1,1,1,0,3,4,0,0]
-				}
-			]
-	}*/
 	//获取参数
 	function getQueryStringArgs(){
 		var flag=(location.search.length > 0 ? true : false);
@@ -118,7 +37,7 @@
 			$.ajax({  
 		        type: "get",  
 		        async: false,  
-		        url: "analysisOneDay?crossDate="+crossDate+"&plateNo="+plateNo,  
+		        url: "analysisOneDay?crossDate=2016-06-01&plateNo="+plateNo,  
 		        success:function(data){
 		        	callback && callback(data);
 		        },
@@ -190,6 +109,9 @@
 									readAnalysis_Line_Frame(type,res.data);
 									readAnalysis_bar_total_Frame(type,res.data);
 									readAnalysis_pie_Frame(type,res.data);
+									$('#result').mCustomScrollbar({
+										axis:"y", theme:"my-theme"
+									});
 								}
 							}
 						});			
@@ -207,6 +129,9 @@
 									readAnalysis_Line_Frame(type,res.data);
 									readAnalysis_bar_total_Frame(type,res.data);
 									readAnalysis_pie_Frame(type,res.data);
+									$('#result').mCustomScrollbar({
+										axis:"y", theme:"my-theme"
+									});
 								}
 							}
 						});
@@ -262,6 +187,9 @@
 									readAnalysis_Line_Frame(type,res.data);
 									readAnalysis_bar_total_Frame(type,res.data);
 									readAnalysis_pie_Frame(type,res.data);
+									$('#result').mCustomScrollbar({
+										axis:"y", theme:"my-theme"
+									});
 								}
 							}
 						});	
@@ -279,6 +207,9 @@
 								readAnalysis_Line_Frame(type,res.data);
 								readAnalysis_bar_total_Frame(type,res.data);
 								readAnalysis_pie_Frame(type,res.data);
+								$('#result').mCustomScrollbar({
+									axis:"y", theme:"my-theme"
+								});
 							}
 						}
 					});
@@ -293,7 +224,7 @@
 							}else{
 								var result_html="<div id='hot'></div>";
 								$('#result').html(result_html);
-								var hotHeight=$('#data').find('.box').height()-80;
+								var hotHeight=$('#result').height();
 								$('#hot').height(hotHeight);
 								readAnalysis_hot_Frame(res.data);
 							}
@@ -311,7 +242,7 @@
 							}else{
 								var result_html="<div id='hot'></div>";
 								$('#result').html(result_html);
-								var hotHeight=$('#data').find('.box').height()-80;
+								var hotHeight=$('#result').height();
 								$('#hot').height(hotHeight);
 								readAnalysis_hot_Frame(res.data);
 							}
@@ -336,6 +267,9 @@
 						readAnalysis_Line_Frame(initType,res.data);
 						readAnalysis_bar_total_Frame(initType,res.data);
 						readAnalysis_pie_Frame(initType,res.data);
+						$('#result').mCustomScrollbar({
+							axis:"y", theme:"my-theme"
+						});
 					}
 				}
 		   });
@@ -358,6 +292,9 @@
 									readAnalysis_Line_Frame(type,res.data);
 									readAnalysis_bar_total_Frame(type,res.data);
 									readAnalysis_pie_Frame(type,res.data);
+									$('#result').mCustomScrollbar({
+										axis:"y", theme:"my-theme"
+									});
 								}
 							}
 						});	
@@ -375,6 +312,9 @@
 								readAnalysis_Line_Frame(type,res.data);
 								readAnalysis_bar_total_Frame(type,res.data);
 								readAnalysis_pie_Frame(type,res.data);
+								$('#result').mCustomScrollbar({
+									axis:"y", theme:"my-theme"
+								});
 							}
 						}
 					});
@@ -389,7 +329,7 @@
 							}else{
 								var result_html="<div id='hot'></div>";
 								$('#result').html(result_html);
-								var hotHeight=$('#data').find('.box').height()-80;
+								var hotHeight=$('#result').height();
 								$('#hot').height(hotHeight);
 								readAnalysis_hot_Frame(res.data);
 							}
@@ -407,7 +347,7 @@
 							}else{
 								var result_html="<div id='hot'></div>";
 								$('#result').html(result_html);
-								var hotHeight=$('#data').find('.box').height()-80;
+								var hotHeight=$('#result').height();
 								$('#hot').height(hotHeight);
 								readAnalysis_hot_Frame(res.data);
 							}
