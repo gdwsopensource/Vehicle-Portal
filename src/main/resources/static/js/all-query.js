@@ -1,5 +1,8 @@
 (function() {
-
+	//改版后初始化结果栏的高度
+	var resultH=parseInt($(".all-data-out").height())-parseInt($(".all-search").height())-50;
+	$(".all-result-box").css({'height':resultH});
+	/*
 	// 初始化结果栏的高度
 	var AllResultH = parseInt($(".container .content").height()) - parseInt($(".container .content .all-query .all-search").height());
 	console.log(AllResultH);
@@ -10,7 +13,9 @@
 	$(".all-result-box").css({
 		'height':parseInt($(".all-result").height())-parseInt($(".all-result-desc").height())
 	});
-
+	*/
+	
+	
 	// 初始化预警类型和车辆类型的下拉列表项
 	var alertTypeArr = [ "", "多次违章", "未年检", "重点关注" ];
 	var plateTypeArr = [ "", "小型汽车", "小型自动挡汽车", "中型客车", "大型货车", "大型客车", "牵引车",
@@ -94,7 +99,7 @@
 								}
 								$(".all-result-box")
 										.html(
-												"<table class='table'><thead><tr><th>通过时间</th><th>车牌</th><th>车辆类型</th><th>预警类型</th><th>卡口</th><th>驶向</th></tr></thead><tbody>"
+												"<table class='table table-primary'><thead><tr><th>通过时间</th><th>车牌</th><th>车辆类型</th><th>预警类型</th><th>卡口</th><th>驶向</th></tr></thead><tbody>"
 														+ tbodyStr
 														+ "</tbody></table>");
 							}

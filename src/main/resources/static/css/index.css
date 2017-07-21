@@ -544,10 +544,7 @@ to {
 	line-height: 40px;
 	color: #d8e7e8;
 	text-align: center;
-	background: -webkit-gradient(linear, left top, left bottom, from(#4b9ff8),
-		color-stop(#1f71bc), to(#26628b));
-	background: -webkit-linear-gradient(#4b9ff8, #1f71bc, #26628b);
-	background: linear-gradient(#4b9ff8, #1f71bc, #26628b);
+	background: linear-gradient(#fedf60, #f3b244);
 	border: 1px solid #1a2a38;
 	outline: 0;
 	margin-left: 30px;
@@ -1295,6 +1292,7 @@ to {
 	font-size: 20px;
 	line-height: 50px;
 	height: 50px;
+	text-align:center;
 }
 
 .container .content .all-query .all-result .table>thead>tr>th:nth-child(1)

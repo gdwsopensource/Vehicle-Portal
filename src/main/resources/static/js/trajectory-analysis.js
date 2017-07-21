@@ -1,13 +1,14 @@
 (function($) {
 	// 地图的高度扣除掉上方搜索高度44px
 	$("#map").css("height", parseInt($("#map").css("height")) - parseInt($(".container .content .top-search").css("height")));
+	
 	// 起始日期设置
 	// 此处调取后台
 	// 绑定车牌改变事件
 	var startDate = "2017-06-01";
 	var endDate = "2017-06-07";
 	var minDate = "2016-06-01";
-	var maxDate = "2017-06-29";
+	var maxDate = "2017-07-31";
 	var defplantNo = "粤AD736T";
 	$(document).keydown(
 			function(event) {
@@ -256,8 +257,8 @@
 		myChart_map.on('click', function(params) {
 			if (params.seriesType == 'lines') {
 				$("#data .title").html(
-						"车牌：" + data.plateNo + " 类型：" + data.plateType + " 预警："
-								+ data.alertType);
+						"车牌：" + data.data[0].plateNo + " 类型：" + data.data[0].plateType + " 预警："
+								+ data.data[0].alertType);
 				$("#data .box table tbody").empty();
 				var tbodyStr = "";
 				// 下一日变换样式

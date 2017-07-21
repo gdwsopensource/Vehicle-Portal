@@ -23,7 +23,7 @@ body {
 	font-size: 14px;
 	font-family: "arial, helvetica, sans-serif";
 	color: #333;
-	overflow: hidden;
+	overflow: auto;
 }
 
 ol, ul {
@@ -332,6 +332,8 @@ to {
 	border: 1px solid #2756cc;
 	height: 30px;
 	text-align: center;
+	background: url(../image/search.png) no-repeat 10px center;
+	color: #FFFFFF;
 }
 
 .main .btn-search {
@@ -368,10 +370,24 @@ to {
 	background: linear-gradient(#febe42, #f48304);
 }
 
+.main .calendar {
+	display: inline;
+}
+
+.main .Wdate {
+	width: 182px;
+	font-size: 20px;
+	text-align: center;
+	color: #FFF;
+	background: url(../libs/My97DatePicker/skin/datePicker.gif) no-repeat
+		right;
+	background-size: 24px 33px;
+	height: 20px;
+}
 /*>>>.main下的通用小模块类样式*/
 
 /*<<<.main下的通用大模块盒子样式*/
-.main .row {
+.main>.row {
 	height: 100%;
 }
 
@@ -433,18 +449,19 @@ to {
 /*>>>.main下的通用大模块盒子样式*/
 
 /*<<<各页面特有样式*/
+/*<<<od-analysis*/
 .main .map .od-map-title {
 	position: absolute;
 	top: 1px;
 	left: 6px;
 }
 
-.main .map .od-map-label{
+.main .map .od-map-label {
 	position: absolute;
 	top: 1px;
 	right: 6px;
-	background-color: rgba(0,0,0,0.5);
-	color:#FFFFFF;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #FFFFFF;
 	padding: 0 8px;
 	font-size: 14px;
 	line-height: 30px;
@@ -467,7 +484,7 @@ to {
 
 .main  .od-data .od-data-top .od-data-top-title {
 	position: absolute;
-	top: 1px;
+	top: 0px;
 	left: 0px;
 }
 
@@ -508,7 +525,7 @@ to {
 
 .main  .od-data .od-data-bottom .od-data-bottom-title {
 	position: absolute;
-	top: 1px;
+	top: 0px;
 	left: 0px;
 }
 
@@ -538,5 +555,131 @@ to {
 	overflow: auto;
 	width: 100%;
 }
+/*>>>od-analysis*/
+/*<<<all-query*/
+.main .all-data {
+	min-height: 100%;
+	border: 1px solid #04b7e2;
+}
 
+.main .all-data .row {
+	margin: 0;
+}
+
+.main .all-data .all-search {
+	border-bottom: 1px solid #04b7e2;
+}
+
+.main .all-data .all-search-title {
+	width: 120px;
+}
+
+.main .all-data .all-search .all-search-box {
+	color: #FFFFFF;
+}
+
+.main .all-data .all-search .all-search-box>.row>div {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.main .all-data .all-search .all-search-box-btn {
+	margin-bottom: 20px;
+}
+
+.main .all-data .all-search .all-search-box .calendar {
+	width: 180px;
+}
+
+.main .all-data .all-search .all-search-box .calendar>input {
+	border: 1px solid #2756cc;
+	padding: 0;
+	height: 30px;
+	text-align: center;
+	font-size: 14px;
+}
+
+.main .all-data .all-search .all-search-box select {
+	font-size: 14px;
+	padding: 0;
+	color: #FFFFFF;
+	background: none;
+}
+
+.main .all-data .all-search .all-search-box select>option {
+	font-size: 14px;
+	padding: 0;
+	color: #FFFFFF;
+	height: 30px;
+	line-height: 30px;
+	background-color: rgba(0, 0, 0, 1);
+}
+
+.main .all-data .all-result-title {
+	width: 120px;
+}
+
+.main .all-data .all-result-box {
+	overflow: auto;
+}
+
+.main .all-data .all-result-box .msg {
+	margin: 10px;
+	font-size: 20px;
+	text-align: center;
+	color: #FF0000;
+}
+
+/*>>>all-query*/
+
+/*<<<trajectory-analysis*/
+.main .container{
+	top: 0;
+	
+}
+
+.main .container .content{
+	width: 100%;
+}
+
+.main .container .content .top-search{
+	height: 50px;
+}
+.main .container .content .row{
+		margin: 0;
+}
+.main .container .content .row>div{
+
+	height: 50px;
+	z-index:5;
+	    background-color: #444444;
+}
+
+.main .container .content #plateno-input-span{
+	left: 0px;
+	width: 60px;
+}
+.main .container .content #plateno-input{
+	left: 50px;
+}
+.main .container .content #calendar-start-span{
+	left: 20px;
+	width: 50px;
+}
+.main .container .content #calendar-start{
+	left: 50px;
+}
+.main .container .content #calendar-start-end{
+	left: 20px;
+	width: 60px;
+}
+.main .container .content #calendar-end{
+	left: 50px;
+}
+
+.main .container .content #trajectort-analysis-search-btn{
+	left:100px;
+}
+
+/*>>>trajectory-analysis*/
 /*>>>各页面特有样式*/
