@@ -1,4 +1,7 @@
 (function($) {
+	$('#result').mCustomScrollbar({
+		axis:"y", theme:"my-theme"
+	});
 	var lastSearch = "";
 	$('#searchAll_btn').on('click', function() {
 		var searchVal = $('#search_input').val();
@@ -8,14 +11,14 @@
 	});
 	$('#saveResult_btn').on('click', function() {
 		var searchVal = $('#search_input').val();
-		if ($('#result').find('.table').length) {
-			$('#result').find('.table').tableExport({
+		if ($('#result').find('.result-data').find('.table').length) {
+			$('#result').find('.result-data').find('.table').tableExport({
 				filename: "车辆："+lastSearch+"的预测结果_%YY%-%MM%-%DD%保存",
 				format: "xls",
 				cols:"1,2,3,4",
 			});
 		} else {
-			$('#result').html("请查询再保存");
+			$('#result').find('.result-data').html("请查询再保存");
 		}
 
 	});
@@ -38,7 +41,7 @@
 				html+="</tr>";
 			}
 			html+="</tbody>";
-			html+="<table>";
+			html+="</table>";
 		return html;
 	}
 	function behaviorPredictAjax(plateNo, isAll) {
@@ -50,12 +53,10 @@
 				console.log(data);
 				if (data.code === 200) {
 					if (data.data === "null") {
-						$('#result').html('没有查询到结果');
+						$('#result').find('.result-data').html('没有查询到结果');
 					} else {
 						lastSearch = plateNo;
-						$('#result').html(readTableFrame(data.data,isAll ? data.data.length : "")).mCustomScrollbar({
-							axis:"y", theme:"my-theme"
-						});
+						$('#result').find('.result-data').html(readTableFrame(data.data,isAll ? data.data.length : ""));
 					}
 				}
 			},

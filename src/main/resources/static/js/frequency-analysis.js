@@ -1,4 +1,19 @@
 (function($){
+	$('#result').mCustomScrollbar({
+		axis:"y", theme:"my-theme"
+	});	
+	$('#startTime').datepicker({
+		language: 'zh-CN',
+		format: 'yyyy-mm-dd',
+		startDate:'2016-06-01', //开始时间
+		autoHide:true
+	});
+	$('#endTime').datepicker({
+		language: 'zh-CN',
+		format: 'yyyy-mm-dd',
+		autoHide:true
+	});
+	
 	$('#search_btn').on('click',function(){
 		var startTime=$('#startTime').val();
 		var endTime=$('#endTime').val();
@@ -13,12 +28,9 @@
 				        	console.log(data);
 				        	if(data.code === 200){
 				        		if(data.data === "null"){
-				        			$('#result').html('没有查询到结果~');
+				        			$('#result').find('.result-data').html('没有查询到结果~');
 				        		}else{
-				        			$('#result').html(readTableFrameCrossName(data.data));
-				        			$('#result').mCustomScrollbar({
-										axis:"y", theme:"my-theme"
-									});
+				        			$('#result').find('.result-data').html(readTableFrameCrossName(data.data));
 				        		}
 				        	}
 				        },
@@ -35,12 +47,9 @@
 				        	console.log(data);
 				        	if(data.code === 200){
 				        		if(data.data === "null"){
-				        			$('#result').html('没有查询到结果~');
+				        			$('#result').find('.result-data').html('没有查询到结果~');
 				        		}else{
-				        			$('#result').html(readTableFrameAll(data.data));
-				        			$('#result').mCustomScrollbar({
-										axis:"y", theme:"my-theme"
-									});
+				        			$('#result').find('.result-data').html(readTableFrameAll(data.data));
 				        		}
 				        	}
 				        },

@@ -1,96 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head th:include="include/head" th:with="title='卡口数据可视化'"></head>
-<style>
-body {
-	background-color: #00011f;
-}
-
-.main {
-	position: absolute;
-	left: 0;
-	top: 85px;
-	right: 0;
-	bottom: 50px;
-}
-
-.main .row, .main .row>div {
-	height: 100%;
-}
-
-.aside {
-	height: 100%;
-	width: 100%;
-	border: 1px solid #04b7e2;
-}
-
-.aside .item .text {
-	height: 50px;
-	line-height: 50px;
-	text-align: center;
-	color: #fff;
-	cursor: pointer;
-	background: url(../image/right.png) no-repeat 25% center;
-	background-size: 20px 20px;
-}
-
-.aside .item .active {
-	height: 50px;
-	line-height: 50px;
-	text-align: center;
-	color: #fff;
-	cursor: pointer;
-	background: url(../image/arrow.png) no-repeat 25% center;
-	background-size: 20px 20px;
-}
-
-.aside .item .item-bar {
-	display: none;
-}
-
-.aside .item .item-bar>a {
-	display: block;
-	height: 40px;
-	line-height: 40px;
-	text-align: center;
-	color: #fff;
-	text-decoration: none;
-}
-
-.aside .item .item-bar>a.active {
-	background: #8a531d;
-}
-
-.aside .item .item-bar>a:hover {
-	background: #8a531d;
-}
-.main .data{
-	height:100%;
-	width:100%;
-	background: url(../image/mapbg.jpg) no-repeat center;
-	background-size: cover;
-	border: 1px solid #04b7e2;
-}
-
-.main .data .title{
-	height:35px;
-	color:#fff;
-	line-height:35px;
-	padding-left: 20px;
-	margin-bottom:5px;
-}
-.main .data .search{
-	padding:0 20px;
-	margin-top:10px;
-}
-.main .data  .result{
-	color: #fff;
-    padding: 0 20px;
-    margin-top: 20px;
-    height:80%;
-}
-</style>
-
+<link rel="stylesheet" type="text/css" th:href="@{libs/datePicker/datepicker.min.css}" />
+<script type="text/javascript" th:src="@{libs/datePicker/datepicker.min.js}"></script>
+<script type="text/javascript" th:src="@{libs/datePicker/datepicker.zh-CN.js}"></script>
 <body>
      <header class="header">
 		<h1>卡口数据可视化</h1>
@@ -105,16 +18,18 @@ body {
 					<div class="title">频次分析</div>
 					<form class="form-inline search">
 						<div class="form-group">
-							<input type="date" name="startTime" id="startTime" class="form-control"
-								placeholder="请输入日期 yyyy-mm-dd" />
-							<input type="date" name="endTime" id="endTime" class="form-control"
-								placeholder="请输入日期 yyyy-mm-dd" />
-							<input type="text" name="cross_name" id="cross_name" class="form-control"
+							<input type="text" name="startTime" id="startTime" class="form-control mr10"
+								placeholder="请输入日期 " />
+							<input type="text" name="endTime" id="endTime" class="form-control mr10"
+								placeholder="请输入日期 " />
+							<input type="text" name="cross_name" id="cross_name" class="form-control mr10"
 								placeholder="请输入你要查询的卡口"/>	
 							<button type="button" class="btn btn-primary" id="search_btn">查询</button>
 						</div>
 					</form>	
-					<div class="result" id="result"></div>
+					<div class="result" id="result">
+						<div class="result-data"></div>
+					</div>
 				</div>
 			</div>
 		</div>

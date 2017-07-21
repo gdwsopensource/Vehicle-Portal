@@ -1,4 +1,8 @@
 (function($){
+	
+	$('#result').mCustomScrollbar({
+		axis:"y", theme:"my-theme"
+	});
 	//获取参数
 	function getQueryStringArgs(){
 		var flag=(location.search.length > 0 ? true : false);
@@ -102,16 +106,13 @@
 							console.log(res);
 							if(res.code === 200){
 								if(res.data === "null"){
-									$('#result').html("没有查询到结果~");
+									$('#result').find('.result-data').html("没有查询到结果~");
 								}else{
 									var result_html="<div id='behavior_analysis_line'></div><div id='behavior_analysis_bar_total'></div><div id='behavior_analysis_pie'></div>";
-									$('#result').html(result_html);
+									$('#result').find('.result-data').html(result_html);
 									readAnalysis_Line_Frame(type,res.data);
 									readAnalysis_bar_total_Frame(type,res.data);
-									readAnalysis_pie_Frame(type,res.data);
-									$('#result').mCustomScrollbar({
-										axis:"y", theme:"my-theme"
-									});
+									readAnalysis_pie_Frame(type,res.data);								
 								}
 							}
 						});			
@@ -122,16 +123,13 @@
 							console.log(res);
 							if(res.code === 200){
 								if(res.data === "null"){
-									$('#result').html("没有查询到结果~");
+									$('#result').find('.result-data').html("没有查询到结果~");
 								}else{
 									var result_html="<div id='behavior_analysis_line'></div><div id='behavior_analysis_bar_total'></div><div id='behavior_analysis_pie'></div>";
-									$('#result').html(result_html);
+									$('#result').find('.result-data').html(result_html);
 									readAnalysis_Line_Frame(type,res.data);
 									readAnalysis_bar_total_Frame(type,res.data);
-									readAnalysis_pie_Frame(type,res.data);
-									$('#result').mCustomScrollbar({
-										axis:"y", theme:"my-theme"
-									});
+									readAnalysis_pie_Frame(type,res.data);									
 								}
 							}
 						});
@@ -142,10 +140,12 @@
 							console.log(res);
 							if(res.code === 200){
 								if(res.data === "null"){
-									$('#result').html("没有查询到结果~");
+									$('#result').find('.result-data').html("没有查询到结果~");
 								}else{
 									var result_html="<div id='hot'></div>";
-									$('#result').html(result_html);
+									$('#result').find('.result-data').html(result_html);
+									var hotHeight=$('#result').height();
+									$('#hot').height(hotHeight);
 									readAnalysis_hot_Frame(res.data);
 								}
 							}
@@ -157,10 +157,12 @@
 							console.log(res);
 							if(res.code === 200){
 								if(res.data === "null"){
-									$('#result').html("没有查询到结果~");
+									$('#result').find('.result-data').html("没有查询到结果~");
 								}else{
 									var result_html="<div id='hot'></div>";
-									$('#result').html(result_html);
+									$('#result').find('.result-data').html(result_html);
+									var hotHeight=$('#result').height();
+									$('#hot').height(hotHeight);
 									readAnalysis_hot_Frame(res.data);
 								}
 							}
@@ -180,16 +182,13 @@
 							console.log(res);
 							if(res.code === 200){
 								if(res.data === "null"){
-									$('#result').html("没有查询到结果~");
+									$('#result').find('.result-data').html("没有查询到结果~");
 								}else{
 									var result_html="<div id='behavior_analysis_line'></div><div id='behavior_analysis_bar_total'></div><div id='behavior_analysis_pie'></div>";
-									$('#result').html(result_html);
+									$('#result').find('.result-data').html(result_html);
 									readAnalysis_Line_Frame(type,res.data);
 									readAnalysis_bar_total_Frame(type,res.data);
-									readAnalysis_pie_Frame(type,res.data);
-									$('#result').mCustomScrollbar({
-										axis:"y", theme:"my-theme"
-									});
+									readAnalysis_pie_Frame(type,res.data);								
 								}
 							}
 						});	
@@ -200,16 +199,13 @@
 						console.log(res);
 						if(res.code === 200){
 							if(res.data === "null"){
-								$('#result').html("没有查询到结果~");
+								$('#result').find('.result-data').html("没有查询到结果~");
 							}else{
 								var result_html="<div id='behavior_analysis_line'></div><div id='behavior_analysis_bar_total'></div><div id='behavior_analysis_pie'></div>";
-								$('#result').html(result_html);
+								$('#result').find('.result-data').html(result_html);
 								readAnalysis_Line_Frame(type,res.data);
 								readAnalysis_bar_total_Frame(type,res.data);
 								readAnalysis_pie_Frame(type,res.data);
-								$('#result').mCustomScrollbar({
-									axis:"y", theme:"my-theme"
-								});
 							}
 						}
 					});
@@ -220,10 +216,10 @@
 						console.log(res);
 						if(res.code === 200){
 							if(res.data === "null"){
-								$('#result').html("没有查询到结果~");
+								$('#result').find('.result-data').html("没有查询到结果~");
 							}else{
 								var result_html="<div id='hot'></div>";
-								$('#result').html(result_html);
+								$('#result').find('.result-data').html(result_html);
 								var hotHeight=$('#result').height();
 								$('#hot').height(hotHeight);
 								readAnalysis_hot_Frame(res.data);
@@ -238,10 +234,10 @@
 						console.log(res);
 						if(res.code === 200){
 							if(res.data === "null"){
-								$('#result').html("没有查询到结果~");
+								$('#result').find('.result-data').html("没有查询到结果~");
 							}else{
 								var result_html="<div id='hot'></div>";
-								$('#result').html(result_html);
+								$('#result').find('.result-data').html(result_html);
 								var hotHeight=$('#result').height();
 								$('#hot').height(hotHeight);
 								readAnalysis_hot_Frame(res.data);
@@ -260,16 +256,13 @@
 				console.log(res);
 				if(res.code === 200){
 					if(res.data === "null"){
-						$('#result').html("没有查询到结果~");
+						$('#result').find('.result-data').html("没有查询到结果~");
 					}else{
 						var result_html="<div id='behavior_analysis_line'></div><div id='behavior_analysis_bar_total'></div><div id='behavior_analysis_pie'></div>";
-						$('#result').html(result_html);
+						$('#result').find('.result-data').html(result_html);
 						readAnalysis_Line_Frame(initType,res.data);
 						readAnalysis_bar_total_Frame(initType,res.data);
 						readAnalysis_pie_Frame(initType,res.data);
-						$('#result').mCustomScrollbar({
-							axis:"y", theme:"my-theme"
-						});
 					}
 				}
 		   });
@@ -285,16 +278,13 @@
 							console.log(res);
 							if(res.code === 200){
 								if(res.data === "null"){
-									$('#result').html("没有查询到结果~");
+									$('#result').find('.result-data').html("没有查询到结果~");
 								}else{
 									var result_html="<div id='behavior_analysis_line'></div><div id='behavior_analysis_bar_total'></div><div id='behavior_analysis_pie'></div>";
-									$('#result').html(result_html);
+									$('#result').find('.result-data').html(result_html);
 									readAnalysis_Line_Frame(type,res.data);
 									readAnalysis_bar_total_Frame(type,res.data);
 									readAnalysis_pie_Frame(type,res.data);
-									$('#result').mCustomScrollbar({
-										axis:"y", theme:"my-theme"
-									});
 								}
 							}
 						});	
@@ -305,16 +295,13 @@
 						console.log(res);
 						if(res.code === 200){
 							if(res.data === "null"){
-								$('#result').html("没有查询到结果~");
+								$('#result').find('.result-data').html("没有查询到结果~");
 							}else{
 								var result_html="<div id='behavior_analysis_line'></div><div id='behavior_analysis_bar_total'></div><div id='behavior_analysis_pie'></div>";
-								$('#result').html(result_html);
+								$('#result').find('.result-data').html(result_html);
 								readAnalysis_Line_Frame(type,res.data);
 								readAnalysis_bar_total_Frame(type,res.data);
 								readAnalysis_pie_Frame(type,res.data);
-								$('#result').mCustomScrollbar({
-									axis:"y", theme:"my-theme"
-								});
 							}
 						}
 					});
@@ -325,10 +312,10 @@
 						console.log(res);
 						if(res.code === 200){
 							if(res.data === "null"){
-								$('#result').html("没有查询到结果~");
+								$('#result').find('.result-data').html("没有查询到结果~");
 							}else{
 								var result_html="<div id='hot'></div>";
-								$('#result').html(result_html);
+								$('#result').find('.result-data').html(result_html);
 								var hotHeight=$('#result').height();
 								$('#hot').height(hotHeight);
 								readAnalysis_hot_Frame(res.data);
@@ -343,10 +330,10 @@
 						console.log(res);
 						if(res.code === 200){
 							if(res.data === "null"){
-								$('#result').html("没有查询到结果~");
+								$('#result').find('.result-data').html("没有查询到结果~");
 							}else{
 								var result_html="<div id='hot'></div>";
-								$('#result').html(result_html);
+								$('#result').find('.result-data').html(result_html);
 								var hotHeight=$('#result').height();
 								$('#hot').height(hotHeight);
 								readAnalysis_hot_Frame(res.data);
@@ -441,6 +428,10 @@
 			series:seriesData
 		};
 		myChart_line.setOption(option_line);
+
+		$(window).on('resize',function(){
+			myChart_line.resize();
+		})
 	}
 	function readAnalysis_bar_total_Frame(type,data){
 		var legendData=[],xAxisData=[],seriesData=[],title="";
@@ -517,6 +508,10 @@
 			}]
 		}
 		myChart_bar_total.setOption(option_bar_total);
+		
+		$(window).on('resize',function(){
+			myChart_bar_total.resize();
+		});
 	}
 	function readAnalysis_pie_Frame(type,data){
 		var legendData=[],seriesData=[],title="";
@@ -581,6 +576,10 @@
 				}]
 		}
 		myChart_pie.setOption(option_pie);
+		
+		$(window).on('resize',function(){
+			myChart_pie.resize();
+		});
 	}
 	function readAnalysis_hot_Frame(data){
 		var data = data || [];

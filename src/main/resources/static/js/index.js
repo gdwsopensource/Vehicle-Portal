@@ -1,4 +1,15 @@
 (function($) {
+	
+	$('#map_data').find('.table-content').mCustomScrollbar({
+		axis:"y", theme:"my-theme"
+	});
+	$('#map_analysis').find('.table-content').mCustomScrollbar({
+		axis:"y", theme:"my-theme"
+	});
+	$('#map_analysis').find('.line-content').mCustomScrollbar({
+		axis:"y", theme:"my-theme"
+	});
+	
 	//日期下拉
 	$("#selectAdate2").dateSelector({
 		yearBegin:2016,
@@ -241,24 +252,17 @@
         		});
         		getCrossCarData(data.data[0].cross_id,time,function(data){
         			console.log(data);
-        			$('#map_data').find('.table-content').html(readMapTableFrame(data.data)).find('table').find('tbody').on('click','tr',function(){
+        			$('#map_data').find('.table-content').find('.table-data').html(readMapTableFrame(data.data)).find('table').find('tbody').on('click','tr',function(){
 	        			var crossDate=$(this).attr('data-crossdate');
 	        			var plateNo=$(this).attr('data-plateno');
 	        			window.location.href="/behavior-analysis?crossDate="+crossDate+"&plateNo="+plateNo;	        			
 	        		});        	
-        			$('#map_data').find('.table-content').mCustomScrollbar({
-	        			axis:"y", theme:"my-theme"
-	        		});
         		});
         		getCrossPoliceData(data.data[0].cross_id,time,function(data){
         			console.log(data);
-        			$('#map_analysis').find('.table-content').html(readPoliceFrame(data.data)).mCustomScrollbar({
-	        			axis:"y", theme:"my-theme"
-	        		});
+        			$('#map_analysis').find('.table-content').find('.table-data').html(readPoliceFrame(data.data));
         	   });
-        		$('#map_analysis').find('.line-content').html(readLineFrame(data.data)).mCustomScrollbar({
-        			axis:"y", theme:"my-theme"
-        		});	
+        		$('#map_analysis').find('.line-content').find('.line-data').html(readLineFrame(data.data));
 			});
 			
 		
@@ -267,20 +271,15 @@
 				if(params.seriesType=='effectScatter'){					
 					getCrossCarData(params.data.cross_id,time,function(data){
 						console.log(data);
-		        		$('#map_data').find('.table-content').html(readMapTableFrame(data.data)).find('table').find('tbody').on('click','tr',function(){
+		        		$('#map_data').find('.table-content').find('.table-data').html(readMapTableFrame(data.data)).find('table').find('tbody').on('click','tr',function(){
 		        			var crossDate=$(this).attr('data-crossdate');
 		        			var plateNo=$(this).attr('data-plateno');
 		        			window.location.href="/behavior-analysis?crossDate="+crossDate+"&plateNo="+plateNo;	        			
 		        		});
-		        		$('#map_data').find('.table-content').mCustomScrollbar({
-		        			axis:"y", theme:"my-theme"
-		        		});
 					});
 					getCrossPoliceData(params.data.cross_id,time,function(data){
 	        			console.log(data);
-	        			$('#map_analysis').find('.table-content').html(readPoliceFrame(data.data)).mCustomScrollbar({
-		        			axis:"y", theme:"my-theme"
-		        		});
+	        			$('#map_analysis').find('.table-content').find('.table-data').html(readPoliceFrame(data.data));
 	        	    });
 				}
 			});
